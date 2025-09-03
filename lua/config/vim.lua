@@ -36,6 +36,4 @@ vim.opt.timeoutlen = 500
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
-vim.g.have_nerd_font = true
-
 vim.opt.confirm = true
