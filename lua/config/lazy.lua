@@ -15,13 +15,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "kanagawa" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
