@@ -43,12 +43,12 @@ return {
   },
   keys = {
     -- -- Top Pickers & Explorer
-    -- { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-    -- { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
-    -- { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
-    -- { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
-    -- { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
     { "\\", function() Snacks.explorer() end, desc = "File Explorer" },
+    { "<leader>sf", function() Snacks.picker.smart() end, desc = "[S]earch [F]iles" },
+    { "<leader>sb", function() Snacks.picker.buffers() end, desc = "[S]earch [B]uffers" },
+    { "<leader>/", function() Snacks.picker.grep() end, desc = "Project Grep" },
+    { "<leader>nh", function() Snacks.picker.notifications() end, desc = "[N]otification [H]istory" },
+    -- { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
 
     -- -- find
     -- { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
