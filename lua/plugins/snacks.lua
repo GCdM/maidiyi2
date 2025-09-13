@@ -39,7 +39,8 @@ return {
       notification = {
         wo = { wrap = true } -- Wrap notifications
       }
-    }
+    },
+    terminal = {}
   },
   keys = {
     -- -- Top Pickers & Explorer
@@ -116,7 +117,23 @@ return {
     { "<leader>nh", function() Snacks.notifier.show_history() end, desc = "[N]otification [H]istory" },
     { "<leader>nD", function() Snacks.notifier.hide() end, desc = "[N]otifications [D]ismiss All" },
     { "<leader>fR", function() Snacks.rename.rename_file() end, desc = "[F]ile [R]ename" },
-    { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal", mode = { "n", "t" } },
+    { 
+      "<c-/>",      
+      function() 
+        Snacks.terminal(nil, {
+          win = { 
+            position = "right",
+            width = 0.5,
+            wo = { 
+              winbar = "",
+              statusline = "",
+            },
+          }
+        }) 
+      end, 
+      desc = "Toggle Terminal",
+      mode = { "n", "t" } 
+    },
 
     { "]]",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
     { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
@@ -154,3 +171,4 @@ return {
   --   })
   -- end,
 }
+
