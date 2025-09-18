@@ -6,8 +6,8 @@
 local map = vim.keymap.set
 
 map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
-map('n', '<leader>Q', '<cmd>qa<cr>', { desc = '[Q]uit All' })
-map('n', '<leader>D', '<cmd>:bd<cr>', { desc = '[D]rop buffer & window' })
+map('n', '<leader>Q', '<cmd>qa<cr>', { desc = '[*Q*]uit All' })
+map('n', '<leader>D', '<cmd>:bd<cr>', { desc = '[*D*]rop buffer & window' })
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map('n', '<Esc>', '<cmd>nohlsearch<CR>') -- Clear highlights on search when pressing <Esc> in normal mode
 
@@ -82,4 +82,4 @@ map('n', '[e', go_to_diagnostic(false, 'ERROR'), { desc = 'Prev Error' })
 map('n', ']w', go_to_diagnostic(true, 'WARN'), { desc = 'Next Warning' })
 map('n', '[w', go_to_diagnostic(false, 'WARN'), { desc = 'Prev Warning' })
 
-map('n', '<leader>L', '<cmd>Lazy<cr>', { desc = '[L]azy' })
+map('n', '<leader>L', '<cmd>Lazy<cr>', { desc = '[*L*]azy' })
