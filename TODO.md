@@ -6,15 +6,6 @@ This document outlines suggested improvements and enhancements for the current N
 
 ## Medium Priority Enhancements
 
-### 1. Add Completion Engine
-**Missing**: Code completion functionality
-
-**Suggestion**: Add `nvim-cmp` with appropriate sources:
-- `cmp-nvim-lsp` - LSP completions
-- `cmp-buffer` - Buffer completions
-- `cmp-path` - File path completions
-- `cmp-cmdline` - Command line completions
-
 ### 2. Enhanced Git Integration
 **Current**: Only has lazygit integration via snacks.nvim
 
@@ -23,40 +14,15 @@ This document outlines suggested improvements and enhancements for the current N
 - Add more git-related keymaps and workflows
 - Consider `diffview.nvim` for better diff viewing
 
-### 3. Session Management
-**Missing**: Session persistence and restoration
-
-**Suggestion**: Add session management plugin like:
-- `auto-session` - Automatic session management
-- `persistence.nvim` - Simple session management
-- Or implement custom session handling
-
 ## Low Priority Improvements
-
-### 4. Project-Specific Configuration
-**Missing**: Per-project settings and configurations
-
-**Suggestions**:
-- Add `.nvim.lua` or `.nvimrc` support for project-specific settings
-- Implement project-specific LSP configurations
-- Add project-specific keymaps or commands
 
 ### 5. Enhanced Autocommands
 **Current**: Only has basic highlight on yank
 
 **Suggestions**:
-- Auto-create directories when saving files
 - Format on save for specific filetypes
 - Auto-resize windows on terminal resize
 - Remember cursor position when reopening files
-
-### 6. Additional Language Support
-**Current**: Limited language server configuration
-
-**Suggestions**:
-- Uncomment and configure additional LSP servers (Python, Rust, Go, C++)
-- Add language-specific formatting and linting rules
-- Configure DAP (Debug Adapter Protocol) for debugging
 
 ### 7. Performance Optimizations
 **Potential Areas**:
@@ -96,6 +62,17 @@ the cursor starts in the background.
 
 **Suggestions**:
 - Search the web for similar reports
+
+### 12. Allow "Scrolling" With Cursor off screen
+**Problem**: Scrolling w/ <C-e> and <C-y> moves the cursor as
+it reaches the boundaries.
+
+### 13. Fix Window Clash Issues
+**Problem**: Opening terminal clashes with opening explorer.
+
+**Suggestions**:
+- Both terminal and explorer are from snacks modules, so there
+should be a way to make them not clash.
 
 ## Completed ✅
 

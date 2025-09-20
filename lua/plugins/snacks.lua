@@ -55,7 +55,7 @@ return {
     -- { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     -- { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
     -- { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-    -- { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
+    { "<leader>fg", function() Snacks.picker.git_files() end, desc = "[F]ind Git Files" },
     -- { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
     -- { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
 
@@ -97,7 +97,7 @@ return {
     -- { "<leader>sl", function() Snacks.picker.loclist() end, desc = "Location List" },
     -- { "<leader>sm", function() Snacks.picker.marks() end, desc = "Marks" },
     -- { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
-    -- { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
+    { "<leader>su", function() Snacks.picker.undo() end,                  desc = "Undo History" },
     { "<leader>uc", function() Snacks.picker.colorschemes() end,          desc = "[U]I [C]olorschemes" },
 
     -- -- LSP

@@ -99,9 +99,9 @@ return {
           vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, optsWithDesc('[C]ode [R]ename'))
           vim.keymap.set(
             {'n', 'x'},
-            '<leader>ff',
+            '<leader>bf',
             function() vim.lsp.buf.format({ async = true }) end,
-            optsWithDesc('[F]ile [F]ormat')
+            optsWithDesc('[B]uffer [F]ormat')
           )
           vim.keymap.set({'n', 'x'}, '<leader>ca', vim.lsp.buf.code_action, optsWithDesc('[C]ode [A]ction'))
 
