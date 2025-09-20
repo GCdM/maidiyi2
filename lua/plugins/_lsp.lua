@@ -17,29 +17,32 @@ return {
     opts = {
       ensure_installed = {
         -- LSP Servers
-        'lua-language-server',   -- Lua
+        'lua-language-server',        -- Lua
         'typescript-language-server', -- TypeScript/JavaScript (for language features)
-        'html-lsp',            -- HTML
-        'css-lsp',             -- CSS
-        'json-lsp',            -- JSON
-        'yaml-language-server', -- YAML
-        'bash-language-server', -- Bash
-        -- 'pyright',              -- Python
-        -- 'rust-analyzer',        -- Rust
-        -- 'gopls',               -- Go
-        -- 'clangd',              -- C/C++
+        'html-lsp',                   -- HTML
+        'css-lsp',                    -- CSS
+        'json-lsp',                   -- JSON
+        'yaml-language-server',       -- YAML
+        'bash-language-server',       -- Bash
+        --
+        -- 'pyright',                 -- Python
+        -- 'rust-analyzer',           -- Rust
+        -- 'gopls',                   -- Go
+        -- 'clangd',                  -- C/C++
 
         -- Formatters
-        'biome',               -- TypeScript/JavaScript (for linting & formatting)
-        'stylua',              -- Lua formatter
-        -- 'black',               -- Python formatter
-        -- 'rustfmt',             -- Rust formatter
-        -- 'gofmt',               -- Go formatter
-        -- 'clang-format',        -- C/C++ formatter
+        'biome',                      -- TypeScript/JavaScript (for linting & formatting)
+        'stylua',                     -- Lua formatter
+        --
+        -- 'black',                   -- Python formatter
+        -- 'rustfmt',                 -- Rust formatter
+        -- 'gofmt',                   -- Go formatter
+        -- 'clang-format',            -- C/C++ formatter
 
         -- Linters
-        'shellcheck',          -- Shell script linter
-        -- 'flake8',              -- Python linter
+        'shellcheck',                 -- Shell script linter
+        --
+        -- 'flake8',                  -- Python linter
       },
       auto_update = false,
       run_on_start = true,
@@ -91,14 +94,6 @@ return {
           )
           vim.keymap.set({'n', 'x'}, '<leader>ca', vim.lsp.buf.code_action, optsWithDesc('[C]ode [A]ction'))
 
-          -- Documentation
-          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-          
-          -- Diagnostics
-          vim.keymap.set('n', '<C-k>', vim.diagnostic.goto_prev, opts)
-          vim.keymap.set('n', '<C-j>', vim.diagnostic.goto_next, opts)
-          vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
-          vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
           -- Note: Diagnostic keymaps are defined globally in config/keymaps.lua
           -- to avoid duplication and provide consistent behavior across buffers
 
