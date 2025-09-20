@@ -5,6 +5,13 @@ return {
   version = 'v0.*',
 
   opts = {
+    -- Disable completion for markdown and text files
+    enabled = function()
+      local disabled_filetypes = { 'markdown', 'text', 'txt' }
+      local filetype = vim.bo.filetype
+      return not vim.tbl_contains(disabled_filetypes, filetype)
+    end,
+
     -- 'default' for mappings similar to built-in completion
     -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
