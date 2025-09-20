@@ -17,6 +17,7 @@ return {
       -- { '<leader>l', group = '[L]og', mode = { 'n', 'v' } },
       { '<leader>n', group = '[N]otification' },
       -- { '<leader>p', group = '[P]roject' },
+      { '<leader>q', group = '[Q]uit/Session' },
       -- { '<leader>r', group = '[R]ename' },
       { '<leader>s', group = '[S]earch' },
       -- { '<leader>t', group = '[T]oggle' },
