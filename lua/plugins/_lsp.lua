@@ -65,6 +65,7 @@ return {
   {
     name = 'native-lsp-config',
     dir = vim.fn.stdpath('config'),
+    lazy = false,
     keys = {
       { '<leader>ls', function() vim.print(vim.lsp.get_clients()) end, desc = '[L]SP [S]ervers' },
       { '<leader>lb', function() vim.print(vim.lsp.get_clients({ bufnr = 0 })) end, desc = '[L]SP Attached to [B]uffer' },
@@ -148,25 +149,35 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
       end
 
-      -- Enable the following language servers with default config
+      -- Enable language servers (attempts to load custom config, falls back to default)
       local servers = {
-        'lua-language-server',
+        'lua_ls',     -- Lua Language Server (native name)
+        'biome',
         'ts_ls',      -- TypeScript Language Server (for language features)
-        'biome',      -- Biome (for linting and formatting)
         'html',
         'cssls',
         'jsonls',
         'yamlls',
         'bashls',
-        
-        -- 'pyright', 
+
+        -- 'pyright',
         -- 'rust_analyzer',
         -- 'gopls',
         -- 'clangd',
       }
 
       for _, server in ipairs(servers) do
-        vim.lsp.enable(server)
+        local config_path = 'lsp.' .. server
+        local ok, config = pcall(require, config_path)
+        if ok then
+          print('Loading custom config for', server)
+          print('Config filetypes:', vim.inspect(config.filetypes))
+          vim.lsp.config(server, config)
+          vim.lsp.enable(server)
+        else
+          print('Using default config for', server)
+          vim.lsp.enable(server) -- Fallback to default config
+        end
       end
     end,
   },
