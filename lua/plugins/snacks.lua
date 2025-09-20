@@ -98,7 +98,7 @@ return {
     -- { "<leader>sm", function() Snacks.picker.marks() end, desc = "Marks" },
     -- { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
     -- { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
-    { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
+    { "<leader>uc", function() Snacks.picker.colorschemes() end, desc = "[U]I [C]olorschemes" },
 
     -- -- LSP
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "[G]oto Definition" },

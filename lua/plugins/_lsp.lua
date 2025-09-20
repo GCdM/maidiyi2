@@ -77,10 +77,10 @@ return {
           -- Buffer local mappings
           local opts = { buffer = bufnr, silent = false }
           local optsWithDesc = function(desc) vim.tbl_extend(opts, { desc }) end
-          
+
           -- Navigation
           vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, optsWithDesc('[G]oto [S]ignature Help'))
-          
+
           -- Actions
           vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, optsWithDesc('[C]ode [R]ename'))
           vim.keymap.set(
@@ -90,7 +90,7 @@ return {
             optsWithDesc('[F]ile [F]ormat')
           )
           vim.keymap.set({'n', 'x'}, '<leader>ca', vim.lsp.buf.code_action, optsWithDesc('[C]ode [A]ction'))
-          
+
           -- Documentation
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           
