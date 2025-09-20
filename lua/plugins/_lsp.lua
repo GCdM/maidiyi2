@@ -188,6 +188,115 @@ return {
         -- Enable the server
         vim.lsp.enable(server)
       end
+
+      -- Create nvim-lspconfig aliases for familiarity (since we removed the plugin)
+      vim.api.nvim_create_user_command('LspInfo', 'checkhealth vim.lsp', {
+        desc = 'Show LSP information (alias to :checkhealth vim.lsp)'
+      })
+
+      vim.api.nvim_create_user_command('LspStart', function(opts)
+        local server_name = opts.args
+        if server_name == '' then
+          vim.notify('LspStart: server name required', vim.log.levels.ERROR)
+          return
+        end
+        vim.lsp.enable(server_name)
+        vim.notify('Started LSP server: ' .. server_name)
+      end, {
+        nargs = 1,
+        desc = 'Start the specified LSP server',
+        complete = function()
+          -- Return list of configured servers
+          return { 'lua_ls', 'biome', 'ts_ls', 'html', 'cssls', 'jsonls', 'yamlls', 'bashls' }
+        end
+      })
+
+      vim.api.nvim_create_user_command('LspStop', function(opts)
+        local client_name = opts.args
+        local force = opts.bang
+
+        if client_name == '' then
+          -- Stop all clients attached to current buffer
+          local clients = vim.lsp.get_clients({ bufnr = 0 })
+          if #clients == 0 then
+            vim.notify('No LSP clients attached to current buffer')
+            return
+          end
+          for _, client in ipairs(clients) do
+            client.stop(force)
+            vim.notify('Stopped LSP client: ' .. client.name)
+          end
+        else
+          -- Stop specific client
+          local clients = vim.lsp.get_clients({ name = client_name })
+          if #clients == 0 then
+            vim.notify('LSP client not found: ' .. client_name, vim.log.levels.ERROR)
+            return
+          end
+          for _, client in ipairs(clients) do
+            client.stop(force)
+            vim.notify('Stopped LSP client: ' .. client.name)
+          end
+        end
+      end, {
+        nargs = '?',
+        bang = true,
+        desc = 'Stop LSP client(s). Use ! to force stop.',
+        complete = function()
+          local clients = vim.lsp.get_clients()
+          local names = {}
+          for _, client in ipairs(clients) do
+            table.insert(names, client.name)
+          end
+          return names
+        end
+      })
+
+      vim.api.nvim_create_user_command('LspRestart', function(opts)
+        local client_name = opts.args
+
+        if client_name == '' then
+          -- Restart all clients
+          local clients = vim.lsp.get_clients()
+          if #clients == 0 then
+            vim.notify('No active LSP clients to restart')
+            return
+          end
+          for _, client in ipairs(clients) do
+            local name = client.name
+            client.stop()
+            vim.defer_fn(function()
+              vim.lsp.enable(name)
+              vim.notify('Restarted LSP client: ' .. name)
+            end, 500)
+          end
+        else
+          -- Restart specific client
+          local clients = vim.lsp.get_clients({ name = client_name })
+          if #clients == 0 then
+            vim.notify('LSP client not found: ' .. client_name, vim.log.levels.ERROR)
+            return
+          end
+          for _, client in ipairs(clients) do
+            client.stop()
+            vim.defer_fn(function()
+              vim.lsp.enable(client_name)
+              vim.notify('Restarted LSP client: ' .. client_name)
+            end, 500)
+          end
+        end
+      end, {
+        nargs = '?',
+        desc = 'Restart LSP client(s)',
+        complete = function()
+          local clients = vim.lsp.get_clients()
+          local names = {}
+          for _, client in ipairs(clients) do
+            table.insert(names, client.name)
+          end
+          return names
+        end
+      })
     end,
   },
 }
