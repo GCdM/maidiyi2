@@ -9,10 +9,10 @@ return {
     opts = {},
   },
 
-  -- Bridge between Mason and lspconfig
+  -- Bridge between Mason and native LSP (Neovim 0.11+)
   {
     'williamboman/mason-lspconfig.nvim',
-    dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
+    dependencies = { 'williamboman/mason.nvim' },
     opts = {
       ensure_installed = {
         'lua_ls',
@@ -70,60 +70,61 @@ return {
     },
   },
 
-  -- LSP Configuration
+  -- Native LSP Configuration (Neovim 0.11+)
   {
-    'neovim/nvim-lspconfig',
+    name = 'native-lsp-config',
+    dir = vim.fn.stdpath('config'),
+    lazy = false,
     dependencies = { 'williamboman/mason-lspconfig.nvim' },
     keys = {
       { '<leader>ls', function() vim.print(vim.lsp.get_clients()) end, desc = '[L]SP [S]ervers' },
       { '<leader>lb', function() vim.print(vim.lsp.get_clients({ bufnr = 0 })) end, desc = '[L]SP Attached to [B]uffer' },
     },
     config = function()
-      local lspconfig = require('lspconfig')
+      -- Global LSP configuration that applies to all servers
+      vim.lsp.config('*', {
+        on_attach = function(client, bufnr)
+          -- Enable completion triggered by <c-x><c-o>
+          vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = bufnr })
+          vim.api.nvim_set_option_value('tagfunc', 'v:lua.vim.lsp.tagfunc', { buf = bufnr })
 
-      -- Default LSP capabilities
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
+          -- Buffer local mappings
+          local opts = { buffer = bufnr, silent = false }
+          local optsWithDesc = function(desc) return vim.tbl_extend('force', opts, { desc = desc }) end
 
-      -- Global on_attach function for all LSP servers
-      local on_attach = function(client, bufnr)
-        -- Enable completion triggered by <c-x><c-o>
-        vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = bufnr })
-        vim.api.nvim_set_option_value('tagfunc', 'v:lua.vim.lsp.tagfunc', { buf = bufnr })
+          -- Navigation
+          vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, optsWithDesc('[G]oto [S]ignature Help'))
 
-        -- Buffer local mappings
-        local opts = { buffer = bufnr, silent = false }
-        local optsWithDesc = function(desc) return vim.tbl_extend('force', opts, { desc = desc }) end
+          -- Actions
+          vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, optsWithDesc('[C]ode [R]ename'))
+          vim.keymap.set(
+            {'n', 'x'},
+            '<leader>ff',
+            function() vim.lsp.buf.format({ async = true }) end,
+            optsWithDesc('[F]ile [F]ormat')
+          )
+          vim.keymap.set({'n', 'x'}, '<leader>ca', vim.lsp.buf.code_action, optsWithDesc('[C]ode [A]ction'))
 
-        -- Navigation
-        vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, optsWithDesc('[G]oto [S]ignature Help'))
+          -- Note: 'K' is automatically mapped to vim.lsp.buf.hover() by Neovim
 
-        -- Actions
-        vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, optsWithDesc('[C]ode [R]ename'))
-        vim.keymap.set(
-          {'n', 'x'},
-          '<leader>ff',
-          function() vim.lsp.buf.format({ async = true }) end,
-          optsWithDesc('[F]ile [F]ormat')
-        )
-        vim.keymap.set({'n', 'x'}, '<leader>ca', vim.lsp.buf.code_action, optsWithDesc('[C]ode [A]ction'))
+          -- Note: Diagnostic keymaps are defined globally in config/keymaps.lua
+          -- to avoid duplication and provide consistent behavior across buffers
 
-        -- Note: 'K' is automatically mapped to vim.lsp.buf.hover() by Neovim
+          -- Highlight the symbol and its references when holding the cursor
+          if client.supports_method('textDocument/documentHighlight') then
+            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+              buffer = bufnr,
+              callback = vim.lsp.buf.document_highlight,
+            })
+            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+              buffer = bufnr,
+              callback = vim.lsp.buf.clear_references,
+            })
+          end
+        end,
 
-        -- Note: Diagnostic keymaps are defined globally in config/keymaps.lua
-        -- to avoid duplication and provide consistent behavior across buffers
-
-        -- Highlight the symbol and its references when holding the cursor
-        if client.supports_method('textDocument/documentHighlight') then
-          vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-            buffer = bufnr,
-            callback = vim.lsp.buf.document_highlight,
-          })
-          vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-            buffer = bufnr,
-            callback = vim.lsp.buf.clear_references,
-          })
-        end
-      end
+        capabilities = vim.lsp.protocol.make_client_capabilities(),
+      })
 
       -- Configure diagnostic display
       vim.diagnostic.config({
@@ -160,7 +161,7 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
       end
 
-      -- Setup language servers with custom configurations or defaults
+      -- Setup language servers with custom configurations from /lsp/ directory
       local servers = {
         'lua_ls',
         'biome',
@@ -176,17 +177,16 @@ return {
         local config_path = 'lsp.' .. server
         local ok, custom_config = pcall(require, config_path)
 
-        local config = {
-          on_attach = on_attach,
-          capabilities = capabilities,
-        }
-
         if ok then
-          -- Merge custom configuration
-          config = vim.tbl_deep_extend('force', config, custom_config)
+          -- Use custom configuration
+          vim.lsp.config(server, custom_config)
+        else
+          -- Use default configuration
+          vim.lsp.config(server, {})
         end
 
-        lspconfig[server].setup(config)
+        -- Enable the server
+        vim.lsp.enable(server)
       end
     end,
   },
