@@ -76,7 +76,7 @@ return {
 
           -- Buffer local mappings
           local opts = { buffer = bufnr, silent = false }
-          local optsWithDesc = function(desc) vim.tbl_extend(opts, { desc }) end
+          local optsWithDesc = function(desc) return vim.tbl_extend('force', opts, { desc = desc }) end
 
           -- Navigation
           vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, optsWithDesc('[G]oto [S]ignature Help'))
@@ -99,6 +99,8 @@ return {
           vim.keymap.set('n', '<C-j>', vim.diagnostic.goto_next, opts)
           vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
           vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+          -- Note: Diagnostic keymaps are defined globally in config/keymaps.lua
+          -- to avoid duplication and provide consistent behavior across buffers
 
           -- Highlight the symbol and its references when holding the cursor
           if client.supports_method('textDocument/documentHighlight') then

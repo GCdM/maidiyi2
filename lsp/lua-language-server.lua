@@ -17,13 +17,13 @@ return {
       diagnostics = {
         globals = { 'vim' }, -- Recognize 'vim' global for Neovim config
       },
-      -- workspace = {
-      --   library = vim.api.nvim_get_runtime_file("", true),
-      --   checkThirdParty = false,
-      -- },
-      -- telemetry = { enable = false },
-      -- hint = { enable = true },
-      -- completion = { callSnippet = 'Replace' },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+      },
+      telemetry = { enable = false },
+      hint = { enable = true },
+      completion = { callSnippet = 'Replace' },
     },
   },
 }
