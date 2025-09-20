@@ -8,7 +8,7 @@ return {
     -- 'default' for mappings similar to built-in completion
     -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-    keymap = { preset = 'default' },
+    keymap = { preset = 'super-tab' },
 
     appearance = {
       -- Sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -21,8 +21,6 @@ return {
     -- Default list of enabled providers
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
-      -- Optionally disable cmdline completions
-      cmdline = {},
     },
 
     -- Experimental signature help support
