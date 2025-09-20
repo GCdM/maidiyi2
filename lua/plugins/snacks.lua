@@ -19,8 +19,8 @@ return {
     picker = {
       sources = {
         explorer = {
-          layout = { 
-            layout = { 
+          layout = {
+            layout = {
               position = "right",
               width = 0.5,
             },
@@ -44,11 +44,11 @@ return {
   },
   keys = {
     -- -- Top Pickers & Explorer
-    { "\\", function() Snacks.explorer() end, desc = "File Explorer" },
-    { "<leader>/", function() Snacks.picker.grep() end, desc = "Project Grep" },
-    { "<leader>sf", function() Snacks.picker.smart() end, desc = "[S]earch [F]iles" },
-    { "<leader>sb", function() Snacks.picker.buffers() end, desc = "[S]earch [B]uffers" },
-    { "<leader>ns", function() Snacks.picker.notifications() end, desc = "[N]otification [S]earch" },
+    { "\\",         function() Snacks.explorer() end,                     desc = "File Explorer" },
+    { "<leader>/",  function() Snacks.picker.grep() end,                  desc = "Project Grep" },
+    { "<leader>sf", function() Snacks.picker.smart() end,                 desc = "[S]earch [F]iles" },
+    { "<leader>sb", function() Snacks.picker.buffers() end,               desc = "[S]earch [B]uffers" },
+    { "<leader>ns", function() Snacks.picker.notifications() end,         desc = "[N]otification [S]earch" },
     -- { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
 
     -- -- find
@@ -60,8 +60,8 @@ return {
     -- { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
 
     -- -- git
-    { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
-    { "<leader>gB", function() Snacks.gitbrowse() end, desc = "[G]it [B]rowse", mode = { "n", "v" } },
+    { "<leader>gg", function() Snacks.lazygit() end,                      desc = "Lazygit" },
+    { "<leader>gB", function() Snacks.gitbrowse() end,                    desc = "[G]it [B]rowse",                    mode = { "n", "v" } },
     -- { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
     -- { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
     -- { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git Log Line" },
@@ -77,17 +77,17 @@ return {
     -- { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
 
     -- -- search
-    { "<leader>sb", function() Snacks.picker.lines() end, desc = "[S]earch [B]uffer" },
-    { "<leader>sc", function() Snacks.picker.commands() end, desc = "[S]earch [C]ommands" },
-    { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "[S]earch [D]iagnostics" },
-    { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "[S]earch Buffer [*D*]iagnostics" },
-    { "<leader>sh", function() Snacks.picker.help() end, desc = "[S]earch [H]elp" },
-    { "<leader>si", function() Snacks.picker.icons() end, desc = "[S]earch [I]cons" },
-    { "<leader>sj", function() Snacks.picker.jumps() end, desc = "[S]earch [J]umps" },
-    { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "[S]earch [K]eymaps" },
-    { "<leader>sp", function() Snacks.picker.lazy() end, desc = "[S]earch [P]lugins" },
-    { "<leader>sq", function() Snacks.picker.qflist() end, desc = "[S]earch [Q]uickfix" },
-    { "<leader>sr", function() Snacks.picker.resume() end, desc = "[S]earch [R]esume" },
+    { "<leader>sb", function() Snacks.picker.lines() end,                 desc = "[S]earch [B]uffer" },
+    { "<leader>sc", function() Snacks.picker.commands() end,              desc = "[S]earch [C]ommands" },
+    { "<leader>sd", function() Snacks.picker.diagnostics() end,           desc = "[S]earch [D]iagnostics" },
+    { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end,    desc = "[S]earch Buffer [*D*]iagnostics" },
+    { "<leader>sh", function() Snacks.picker.help() end,                  desc = "[S]earch [H]elp" },
+    { "<leader>si", function() Snacks.picker.icons() end,                 desc = "[S]earch [I]cons" },
+    { "<leader>sj", function() Snacks.picker.jumps() end,                 desc = "[S]earch [J]umps" },
+    { "<leader>sk", function() Snacks.picker.keymaps() end,               desc = "[S]earch [K]eymaps" },
+    { "<leader>sp", function() Snacks.picker.lazy() end,                  desc = "[S]earch [P]lugins" },
+    { "<leader>sq", function() Snacks.picker.qflist() end,                desc = "[S]earch [Q]uickfix" },
+    { "<leader>sr", function() Snacks.picker.resume() end,                desc = "[S]earch [R]esume" },
 
     -- { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
     -- { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
@@ -98,45 +98,45 @@ return {
     -- { "<leader>sm", function() Snacks.picker.marks() end, desc = "Marks" },
     -- { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
     -- { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
-    { "<leader>uc", function() Snacks.picker.colorschemes() end, desc = "[U]I [C]olorschemes" },
+    { "<leader>uc", function() Snacks.picker.colorschemes() end,          desc = "[U]I [C]olorschemes" },
 
     -- -- LSP
-    { "gd", function() Snacks.picker.lsp_definitions() end, desc = "[G]oto Definition" },
-    { "gD", function() Snacks.picker.lsp_declarations() end, desc = "[G]oto Declaration" },
-    { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "[G]oto [R]eferences" },
-    { "gI", function() Snacks.picker.lsp_implementations() end, desc = "[G]oto [I]mplementation" },
-    { "gt", function() Snacks.picker.lsp_type_definitions() end, desc = "[G]oto [T]ype Definition" },
-    { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "[S]earch LSP [S]ymbols" },
+    { "gd",         function() Snacks.picker.lsp_definitions() end,       desc = "[G]oto Definition" },
+    { "gD",         function() Snacks.picker.lsp_declarations() end,      desc = "[G]oto Declaration" },
+    { "gr",         function() Snacks.picker.lsp_references() end,        nowait = true,                              desc = "[G]oto [R]eferences" },
+    { "gI",         function() Snacks.picker.lsp_implementations() end,   desc = "[G]oto [I]mplementation" },
+    { "gt",         function() Snacks.picker.lsp_type_definitions() end,  desc = "[G]oto [T]ype Definition" },
+    { "<leader>ss", function() Snacks.picker.lsp_symbols() end,           desc = "[S]earch LSP [S]ymbols" },
     { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "[S]earch LSP Workspace [*S*]ymbols" },
 
     --- -- Buffer
-    { "<leader>bs",  function() Snacks.scratch() end, desc = "[B]uffer [S]cratch" },
-    { "<leader>bd", function() Snacks.bufdelete() end, desc = "[B]uffer [D]rop" },
+    { "<leader>bs", function() Snacks.scratch() end,                      desc = "[B]uffer [S]cratch" },
+    { "<leader>bd", function() Snacks.bufdelete() end,                    desc = "[B]uffer [D]rop" },
 
     -- -- Other
-    { "<leader>nh", function() Snacks.notifier.show_history() end, desc = "[N]otification [H]istory" },
-    { "<leader>nD", function() Snacks.notifier.hide() end, desc = "[N]otifications [D]ismiss All" },
-    { "<leader>fR", function() Snacks.rename.rename_file() end, desc = "[F]ile [R]ename" },
-    { 
-      "<c-/>",      
-      function() 
+    { "<leader>nh", function() Snacks.notifier.show_history() end,        desc = "[N]otification [H]istory" },
+    { "<leader>nD", function() Snacks.notifier.hide() end,                desc = "[N]otifications [D]ismiss All" },
+    { "<leader>fR", function() Snacks.rename.rename_file() end,           desc = "[F]ile [R]ename" },
+    {
+      "<c-/>",
+      function()
         Snacks.terminal(nil, {
-          win = { 
+          win = {
             position = "right",
             width = 0.5,
-            wo = { 
+            wo = {
               winbar = "",
               statusline = "",
             },
           }
-        }) 
-      end, 
+        })
+      end,
       desc = "Toggle Terminal",
-      mode = { "n", "t" } 
+      mode = { "n", "t" }
     },
 
-    { "]]",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
-    { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
+    { "]]", function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference", mode = { "n", "t" } },
+    { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
     -- { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
     -- { "<leader>Z",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
     -- { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
@@ -171,4 +171,3 @@ return {
   --   })
   -- end,
 }
-
