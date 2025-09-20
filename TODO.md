@@ -4,39 +4,7 @@ This document outlines suggested improvements and enhancements for the current N
 
 ## High Priority Issues
 
-### 1. Fix Directory Path Configuration
-**File**: `lua/config/vim.lua:22-23`
-
-**Issue**: Backup and undo directory paths are swapped and may not exist.
-
-```lua
--- Current (incorrect):
-vim.opt.undodir = os.getenv('HOME') .. '/.vim/backup'
-vim.opt.backupdir = os.getenv('HOME') .. '/.vim/undo'
-
--- Should be:
-vim.opt.undodir = os.getenv('HOME') .. '/.vim/undo'
-vim.opt.backupdir = os.getenv('HOME') .. '/.vim/backup'
-```
-
-**Additional**: Ensure these directories exist or are created automatically.
-
-### 2. Fix LSP Custom Configuration Format
-**File**: `lsp/lua_ls.lua:4-11`
-
-**Issue**: Uses `root_markers` format but nvim-lspconfig expects `root_dir` function.
-
-```lua
--- Current:
-root_markers = { '.luarc.json', '.luarc.jsonc', '.luacheckrc', '.stylua.toml', 'stylua.toml', '.git' }
-
--- Should be:
-root_dir = function(fname)
-  return vim.fs.root(fname, { '.luarc.json', '.luarc.jsonc', '.luacheckrc', '.stylua.toml', 'stylua.toml', '.git' })
-end
-```
-
-### 3. Complete or Remove Mini.lua
+### 1. Complete or Remove Mini.lua
 **File**: `lua/plugins/mini.lua`
 
 **Issue**: Contains only comments, no actual implementation.
@@ -48,7 +16,7 @@ end
 
 ## Medium Priority Enhancements
 
-### 4. Add Completion Engine
+### 2. Add Completion Engine
 **Missing**: Code completion functionality
 
 **Suggestion**: Add `nvim-cmp` with appropriate sources:
@@ -57,7 +25,7 @@ end
 - `cmp-path` - File path completions
 - `cmp-cmdline` - Command line completions
 
-### 5. Enhanced Git Integration
+### 3. Enhanced Git Integration
 **Current**: Only has lazygit integration via snacks.nvim
 
 **Suggestions**:
@@ -65,7 +33,7 @@ end
 - Add more git-related keymaps and workflows
 - Consider `diffview.nvim` for better diff viewing
 
-### 6. Session Management
+### 4. Session Management
 **Missing**: Session persistence and restoration
 
 **Suggestion**: Add session management plugin like:
@@ -75,7 +43,7 @@ end
 
 ## Low Priority Improvements
 
-### 7. Project-Specific Configuration
+### 5. Project-Specific Configuration
 **Missing**: Per-project settings and configurations
 
 **Suggestions**:
@@ -83,7 +51,7 @@ end
 - Implement project-specific LSP configurations
 - Add project-specific keymaps or commands
 
-### 8. Enhanced Autocommands
+### 6. Enhanced Autocommands
 **Current**: Only has basic highlight on yank
 
 **Suggestions**:
@@ -92,7 +60,7 @@ end
 - Auto-resize windows on terminal resize
 - Remember cursor position when reopening files
 
-### 9. Additional Language Support
+### 7. Additional Language Support
 **Current**: Limited language server configuration
 
 **Suggestions**:
@@ -100,7 +68,7 @@ end
 - Add language-specific formatting and linting rules
 - Configure DAP (Debug Adapter Protocol) for debugging
 
-### 10. Performance Optimizations
+### 8. Performance Optimizations
 **Potential Areas**:
 - Lazy load more plugins based on filetypes
 - Optimize startup time with lazy loading strategies
@@ -108,13 +76,13 @@ end
 
 ## File Structure Improvements
 
-### 11. Better Organization
+### 9. Better Organization
 **Suggestions**:
 - Consider splitting large plugin configurations into separate files
 - Add documentation comments to configuration files
 - Create consistent naming conventions for plugin files
 
-### 12. Configuration Validation
+### 10. Configuration Validation
 **Missing**: Validation of configuration settings
 
 **Suggestions**:
@@ -124,7 +92,7 @@ end
 
 ## Documentation
 
-### 13. Add Configuration Documentation
+### 11. Add Configuration Documentation
 **Missing**: Documentation for custom configurations and keymaps
 
 **Suggestions**:
@@ -132,9 +100,17 @@ end
 - Add inline documentation for complex configurations
 - Document custom functions and their purposes
 
+### 12. Diagnose Why Lazy Starts Unfocused
+**Problem**: When opening neovim and lazy auto installs new packages
+the cursor starts in the background.
+
+**Suggestions**:
+- Search the web for similar reports
+
 ## Completed ✅
 
-- ✅ LSP Configuration (migrated to nvim-lspconfig)
+- ✅ Fix Directory Path Configuration (backup/undo paths corrected with auto-creation)
+- ✅ LSP Configuration (migrated to nvim-lspconfig with proper root_markers format)
 - ✅ Treesitter Configuration (syntax highlighting and indentation)
 - ✅ Keymap duplication cleanup
 - ✅ Plugin architecture modernization

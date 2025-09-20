@@ -19,8 +19,17 @@ vim.opt.expandtab = true
 vim.opt.swapfile = false
 -- vim.opt.updatetime = 250
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv('HOME') .. '/.vim/backup'
-vim.opt.backupdir = os.getenv('HOME') .. '/.vim/undo'
+
+-- Create and set backup/undo directories
+local function ensure_dir(path)
+  if vim.fn.isdirectory(path) == 0 then
+    vim.fn.mkdir(path, 'p')
+  end
+  return path
+end
+
+vim.opt.undodir = ensure_dir(os.getenv('HOME') .. '/.vim/undo')
+vim.opt.backupdir = ensure_dir(os.getenv('HOME') .. '/.vim/backup')
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
