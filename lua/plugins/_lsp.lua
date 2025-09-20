@@ -1,5 +1,4 @@
--- Mason + Native LSP Configuration for Neovim 0.11+
--- This replaces the need for nvim-lspconfig and mason-lspconfig
+-- LSP Configuration with nvim-lspconfig and Mason
 
 return {
   {
@@ -8,6 +7,28 @@ return {
     keys = { { '<leader>M', '<cmd>Mason<cr>', desc = '[*M*]ason' } },
     build = ':MasonUpdate',
     opts = {},
+  },
+
+  -- Bridge between Mason and lspconfig
+  {
+    'williamboman/mason-lspconfig.nvim',
+    dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
+    opts = {
+      ensure_installed = {
+        'lua_ls',
+        'ts_ls',
+        'html',
+        'cssls',
+        'jsonls',
+        'yamlls',
+        'bashls',
+        -- 'pyright',
+        -- 'rust_analyzer',
+        -- 'gopls',
+        -- 'clangd',
+      },
+      automatic_installation = true,
+    },
   },
 
   -- Automatically install tools
@@ -24,25 +45,13 @@ return {
         'json-lsp',                   -- JSON
         'yaml-language-server',       -- YAML
         'bash-language-server',       -- Bash
-        --
-        -- 'pyright',                 -- Python
-        -- 'rust-analyzer',           -- Rust
-        -- 'gopls',                   -- Go
-        -- 'clangd',                  -- C/C++
 
         -- Formatters
         'biome',                      -- TypeScript/JavaScript (for linting & formatting)
         'stylua',                     -- Lua formatter
-        --
-        -- 'black',                   -- Python formatter
-        -- 'rustfmt',                 -- Rust formatter
-        -- 'gofmt',                   -- Go formatter
-        -- 'clang-format',            -- C/C++ formatter
 
         -- Linters
         'shellcheck',                 -- Shell script linter
-        --
-        -- 'flake8',                  -- Python linter
       },
       auto_update = false,
       run_on_start = true,
@@ -63,56 +72,58 @@ return {
 
   -- LSP Configuration
   {
-    name = 'native-lsp-config',
-    dir = vim.fn.stdpath('config'),
-    lazy = false,
+    'neovim/nvim-lspconfig',
+    dependencies = { 'williamboman/mason-lspconfig.nvim' },
     keys = {
       { '<leader>ls', function() vim.print(vim.lsp.get_clients()) end, desc = '[L]SP [S]ervers' },
       { '<leader>lb', function() vim.print(vim.lsp.get_clients({ bufnr = 0 })) end, desc = '[L]SP Attached to [B]uffer' },
     },
     config = function()
-      -- Global LSP configuration that applies to all servers
-      vim.lsp.config('*', {
-        on_attach = function(client, bufnr)
-          -- Enable completion triggered by <c-x><c-o>
-          vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = bufnr })
-          vim.api.nvim_set_option_value('tagfunc', 'v:lua.vim.lsp.tagfunc', { buf = bufnr })
+      local lspconfig = require('lspconfig')
 
-          -- Buffer local mappings
-          local opts = { buffer = bufnr, silent = false }
-          local optsWithDesc = function(desc) return vim.tbl_extend('force', opts, { desc = desc }) end
+      -- Default LSP capabilities
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-          -- Navigation
-          vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, optsWithDesc('[G]oto [S]ignature Help'))
+      -- Global on_attach function for all LSP servers
+      local on_attach = function(client, bufnr)
+        -- Enable completion triggered by <c-x><c-o>
+        vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = bufnr })
+        vim.api.nvim_set_option_value('tagfunc', 'v:lua.vim.lsp.tagfunc', { buf = bufnr })
 
-          -- Actions
-          vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, optsWithDesc('[C]ode [R]ename'))
-          vim.keymap.set(
-            {'n', 'x'}, 
-            '<leader>ff', 
-            function() vim.lsp.buf.format({ async = true }) end, 
-            optsWithDesc('[F]ile [F]ormat')
-          )
-          vim.keymap.set({'n', 'x'}, '<leader>ca', vim.lsp.buf.code_action, optsWithDesc('[C]ode [A]ction'))
+        -- Buffer local mappings
+        local opts = { buffer = bufnr, silent = false }
+        local optsWithDesc = function(desc) return vim.tbl_extend('force', opts, { desc = desc }) end
 
-          -- Note: Diagnostic keymaps are defined globally in config/keymaps.lua
-          -- to avoid duplication and provide consistent behavior across buffers
+        -- Navigation
+        vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, optsWithDesc('[G]oto [S]ignature Help'))
 
-          -- Highlight the symbol and its references when holding the cursor
-          if client.supports_method('textDocument/documentHighlight') then
-            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-              buffer = bufnr,
-              callback = vim.lsp.buf.document_highlight,
-            })
-            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-              buffer = bufnr,
-              callback = vim.lsp.buf.clear_references,
-            })
-          end
-        end,
+        -- Actions
+        vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, optsWithDesc('[C]ode [R]ename'))
+        vim.keymap.set(
+          {'n', 'x'},
+          '<leader>ff',
+          function() vim.lsp.buf.format({ async = true }) end,
+          optsWithDesc('[F]ile [F]ormat')
+        )
+        vim.keymap.set({'n', 'x'}, '<leader>ca', vim.lsp.buf.code_action, optsWithDesc('[C]ode [A]ction'))
 
-        capabilities = vim.lsp.protocol.make_client_capabilities(),
-      })
+        -- Note: 'K' is automatically mapped to vim.lsp.buf.hover() by Neovim
+
+        -- Note: Diagnostic keymaps are defined globally in config/keymaps.lua
+        -- to avoid duplication and provide consistent behavior across buffers
+
+        -- Highlight the symbol and its references when holding the cursor
+        if client.supports_method('textDocument/documentHighlight') then
+          vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            buffer = bufnr,
+            callback = vim.lsp.buf.document_highlight,
+          })
+          vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+            buffer = bufnr,
+            callback = vim.lsp.buf.clear_references,
+          })
+        end
+      end
 
       -- Configure diagnostic display
       vim.diagnostic.config({
@@ -149,37 +160,34 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
       end
 
-      -- Enable language servers (attempts to load custom config, falls back to default)
+      -- Setup language servers with custom configurations or defaults
       local servers = {
-        'lua_ls',     -- Lua Language Server (native name)
+        'lua_ls',
         'biome',
-        'ts_ls',      -- TypeScript Language Server (for language features)
+        'ts_ls',
         'html',
         'cssls',
         'jsonls',
         'yamlls',
         'bashls',
-
-        -- 'pyright',
-        -- 'rust_analyzer',
-        -- 'gopls',
-        -- 'clangd',
       }
 
       for _, server in ipairs(servers) do
         local config_path = 'lsp.' .. server
-        local ok, config = pcall(require, config_path)
+        local ok, custom_config = pcall(require, config_path)
+
+        local config = {
+          on_attach = on_attach,
+          capabilities = capabilities,
+        }
+
         if ok then
-          print('Loading custom config for', server)
-          print('Config filetypes:', vim.inspect(config.filetypes))
-          vim.lsp.config(server, config)
-          vim.lsp.enable(server)
-        else
-          print('Using default config for', server)
-          vim.lsp.enable(server) -- Fallback to default config
+          -- Merge custom configuration
+          config = vim.tbl_deep_extend('force', config, custom_config)
         end
+
+        lspconfig[server].setup(config)
       end
     end,
   },
 }
-
