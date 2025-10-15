@@ -55,7 +55,7 @@ return {
     -- { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     -- { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
     -- { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-    { "<leader>fg", function() Snacks.picker.git_files() end, desc = "[F]ind Git Files" },
+    { "<leader>fg", function() Snacks.picker.git_files() end,             desc = "[F]ind [G]it Files" },
     -- { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
     -- { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
 
@@ -103,7 +103,8 @@ return {
     -- -- LSP
     { "gd",         function() Snacks.picker.lsp_definitions() end,       desc = "[G]oto Definition" },
     { "gD",         function() Snacks.picker.lsp_declarations() end,      desc = "[G]oto Declaration" },
-    { "gr",         function() Snacks.picker.lsp_references() end,        nowait = true,                              desc = "[G]oto [R]eferences" },
+    { "gr",         function() Snacks.picker.lsp_references() end,        desc = "[G]oto [R]eferences",               nowait = true },
+
     { "gI",         function() Snacks.picker.lsp_implementations() end,   desc = "[G]oto [I]mplementation" },
     { "gt",         function() Snacks.picker.lsp_type_definitions() end,  desc = "[G]oto [T]ype Definition" },
     { "<leader>ss", function() Snacks.picker.lsp_symbols() end,           desc = "[S]earch LSP [S]ymbols" },

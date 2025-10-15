@@ -2,9 +2,19 @@
 
 This document outlines suggested improvements and enhancements for the current Neovim configuration.
 
-## High Priority Issues
+## Plugins to add
+- `trouble.nvim`
+- `gitsigns.nvim` _finish configuring_
+- `diffview.nvim` _finish configuring_
+- `git-conflict.nvim`
 
-## Medium Priority Enhancements
+## General enhancements
+
+### 1. Organise plugin clumps
+**Current**: specs that handle a theme of plugins are called `_theme.lua`
+
+**Suggestions**:
+- For `git` we'll have many plugins, so might be worth having a subdirectory
 
 ### 2. Enhanced Git Integration
 **Current**: Only has lazygit integration via snacks.nvim
@@ -14,13 +24,13 @@ This document outlines suggested improvements and enhancements for the current N
 - Add more git-related keymaps and workflows
 - Consider `diffview.nvim` for better diff viewing
 
-## Low Priority Improvements
 
 ### 5. Enhanced Autocommands
 **Current**: Only has basic highlight on yank
 
 **Suggestions**:
 - Format on save for specific filetypes
+    - Add a toggle for turning this on/off
 - Auto-resize windows on terminal resize
 - Remember cursor position when reopening files
 
@@ -30,13 +40,6 @@ This document outlines suggested improvements and enhancements for the current N
 - Optimize startup time with lazy loading strategies
 - Review and optimize plugin configurations
 
-## File Structure Improvements
-
-### 8. Better Organization
-**Suggestions**:
-- Consider splitting large plugin configurations into separate files
-- Add documentation comments to configuration files
-- Create consistent naming conventions for plugin files
 
 ### 9. Configuration Validation
 **Missing**: Validation of configuration settings
@@ -45,8 +48,6 @@ This document outlines suggested improvements and enhancements for the current N
 - Add checks for required tools/binaries
 - Validate plugin configurations on startup
 - Add health checks for custom configurations
-
-## Documentation
 
 ### 10. Add Configuration Documentation
 **Missing**: Documentation for custom configurations and keymaps
@@ -65,7 +66,7 @@ the cursor starts in the background.
 
 ### 12. Allow "Scrolling" With Cursor off screen
 **Problem**: Scrolling w/ <C-e> and <C-y> moves the cursor as
-it reaches the boundaries.
+it reaches the boundaries. Because of `vim.scrolloff = 8`
 
 ### 13. Fix Window Clash Issues
 **Problem**: Opening terminal clashes with opening explorer.
@@ -73,6 +74,9 @@ it reaches the boundaries.
 **Suggestions**:
 - Both terminal and explorer are from snacks modules, so there
 should be a way to make them not clash.
+
+### 14. Improve `<leader>Q` to quit everything
+**Problem**: If on terminal, only closes terminal
 
 ## Completed ✅
 
