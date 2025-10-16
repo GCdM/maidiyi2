@@ -148,11 +148,15 @@ return {
           focusable = false,
           style = 'minimal',
           border = 'rounded',
-          source = 'always',
+          source = 'if_many',
           header = '',
           prefix = '',
         },
       })
+
+      -- Configure default border for all floating windows (Neovim 0.11+)
+      -- This applies to LSP hover, signature help, and other floating windows
+      vim.o.winborder = 'rounded'
 
       -- Change the Diagnostic symbols in the sign column (gutter)
       local signs = { Error = '✘', Warn = '▲', Hint = '⚑', Info = '»' }
