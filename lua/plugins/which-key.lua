@@ -9,11 +9,11 @@ return {
     spec = {
       -- { '<leader>a', group = '[A]vante' },
       { '<leader>b', group = '[B]uffer' },
-      { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+      { '<leader>c', group = '[C]ode',        mode = { 'n', 'x' } },
       -- { '<leader>d', group = '[D]ebug' },
       { '<leader>f', group = '[F]ile' },
       { '<leader>g', group = '[G]it' },
-      { '<leader>h', group = '[H]unk (git)', mode = { 'n', 'v' } },
+      { '<leader>h', group = '[H]unk (git)',  mode = { 'n', 'v' } },
       -- { '<leader>l', group = '[L]og', mode = { 'n', 'v' } },
       { '<leader>n', group = '[N]otification' },
       -- { '<leader>p', group = '[P]roject' },
@@ -34,4 +34,4 @@ return {
       desc = "Which key?",
     },
   },
-} 
+}

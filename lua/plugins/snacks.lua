@@ -47,7 +47,6 @@ return {
     { "<leader>/",  function() Snacks.picker.grep() end,                                    desc = "Project Grep" },
     { "<leader>sf", function() Snacks.picker.files() end,                                   desc = "[S]earch [F]iles" },
     { "<leader>sF", function() Snacks.picker.smart() end,                                   desc = "[S]earch [*F*]iles (smart)" },
-    { "<leader>sb", function() Snacks.picker.buffers() end,                                 desc = "[S]earch [B]uffers" },
     { "<leader>sc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "[S]earch [*C*]onfig Files" },
 
     -- { "<leader>sg", function() Snacks.picker.git_files() end,             desc = "[S]earch Git [F]iles" },
@@ -109,8 +108,9 @@ return {
     { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end,                   desc = "[S]earch LSP Workspace [*S*]ymbols" },
 
     --- -- Buffer
-    { "<leader>bs", function() Snacks.scratch() end,                                        desc = "[B]uffer [S]cratch" },
     { "<leader>bd", function() Snacks.bufdelete() end,                                      desc = "[B]uffer [D]rop" },
+    { "<leader>bf", function() Snacks.picker.buffers() end,                                 desc = "[B]uffer [F]ind" },
+    { "<leader>bS", function() Snacks.scratch() end,                                        desc = "[B]uffer [S]cratch" },
 
     -- -- Other
     { "<leader>fr", function() Snacks.picker.recent() end,                                  desc = "[F]iles [R]ecent" },
