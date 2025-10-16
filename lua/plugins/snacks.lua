@@ -44,7 +44,6 @@ return {
   },
   keys = {
     -- -- Top Pickers & Explorer
-    { "\\",         function() Snacks.explorer() end,                                       desc = "File Explorer" },
     { "<leader>/",  function() Snacks.picker.grep() end,                                    desc = "Project Grep" },
     { "<leader>sf", function() Snacks.picker.files() end,                                   desc = "[S]earch [F]iles" },
     { "<leader>sF", function() Snacks.picker.smart() end,                                   desc = "[S]earch [*F*]iles (smart)" },
@@ -59,36 +58,37 @@ return {
     -- -- git
     { "<leader>gg", function() Snacks.lazygit() end,                                        desc = "Lazygit" },
     { "<leader>gB", function() Snacks.gitbrowse() end,                                      desc = "[G]it Open [B]rowser",              mode = { "n", "v" } },
-    { "<leader>gl", function() Snacks.picker.git_log() end,                                 desc = "Git Log" },
-    { "<leader>gL", function() Snacks.picker.git_log_line() end,                            desc = "Git Log Line" },
-    { "<leader>gf", function() Snacks.picker.git_log_file() end,                            desc = "Git Log File" },
-    { "<leader>gd", function() Snacks.picker.git_diff() end,                                desc = "Git Diff (Hunks)" },
+    { "<leader>gl", function() Snacks.picker.git_log() end,                                 desc = "[G]it Log" },
+    { "<leader>gL", function() Snacks.picker.git_log_line() end,                            desc = "[G]it Log Line" },
+    { "<leader>gf", function() Snacks.picker.git_log_file() end,                            desc = "[G]it Log File" },
+    { "<leader>gd", function() Snacks.picker.git_diff() end,                                desc = "[G]it Diff (Hunks)" },
     --
     -- { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
     -- { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
     -- { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
 
     -- -- Grep
+    { "\\",         function() Snacks.explorer() end,                                       desc = "File Explorer" },
+    { "<leader>sw", function() Snacks.picker.grep_word() end,                               desc = "[S]earch [W]ord",                   mode = { "n", "x" } },
+    -- { "<leader>sg", function() Snacks.picker.grep() end,                                    desc = "[S]earch [G]rep" },
     -- { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
     -- { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
-    -- { "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep" },
-    { "<leader>sw", function() Snacks.picker.grep_word() end,                               desc = "[S]earch [W]ord",                   mode = { "n", "x" } },
 
     -- -- search
     { "<leader>sb", function() Snacks.picker.lines() end,                                   desc = "[S]earch [B]uffer" },
     { "<leader>sC", function() Snacks.picker.commands() end,                                desc = "[S]earch [*C*]ommands" },
     { "<leader>sd", function() Snacks.picker.diagnostics() end,                             desc = "[S]earch [D]iagnostics" },
     { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end,                      desc = "[S]earch Buffer [*D*]iagnostics" },
-    { "<leader>sh", function() Snacks.picker.help() end,                                    desc = "[S]earch [H]elp" },
+    { '<leader>sh', function() Snacks.picker.search_history() end,                          desc = "[S]earch [H]istory" },
+    { "<leader>sH", function() Snacks.picker.help() end,                                    desc = "[S]earch [*H*]elp" },
     { "<leader>si", function() Snacks.picker.icons() end,                                   desc = "[S]earch [I]cons" },
     { "<leader>sj", function() Snacks.picker.jumps() end,                                   desc = "[S]earch [J]umps" },
     { "<leader>sk", function() Snacks.picker.keymaps() end,                                 desc = "[S]earch [K]eymaps" },
     { "<leader>sp", function() Snacks.picker.lazy() end,                                    desc = "[S]earch [P]lugins" },
-    { "<leader>sq", function() Snacks.picker.qflist() end,                                  desc = "[S]earch [Q]uickfix" },
     { "<leader>sr", function() Snacks.picker.resume() end,                                  desc = "[S]earch [R]esume" },
 
+    -- { "<leader>sq", function() Snacks.picker.qflist() end,                                  desc = "[S]earch [Q]uickfix" },
     -- { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
-    -- { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
     -- { "<leader>sa", function() Snacks.picker.autocmds() end, desc = "Autocmds" },
     -- { "<leader>sC", function() Snacks.picker.command_history() end, desc = "Command History" },
     -- { "<leader>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },
@@ -99,8 +99,8 @@ return {
     { "<leader>uc", function() Snacks.picker.colorschemes() end,                            desc = "[U]I [C]olorschemes" },
 
     -- -- LSP
-    { "gd",         function() Snacks.picker.lsp_definitions() end,                         desc = "[G]oto Definition" },
-    { "gD",         function() Snacks.picker.lsp_declarations() end,                        desc = "[G]oto Declaration" },
+    { "gd",         function() Snacks.picker.lsp_definitions() end,                         desc = "[G]oto [D]efinition" },
+    { "gD",         function() Snacks.picker.lsp_declarations() end,                        desc = "[G]oto [*D*]eclaration" },
     { "gr",         function() Snacks.picker.lsp_references() end,                          desc = "[G]oto [R]eferences",               nowait = true },
 
     { "gI",         function() Snacks.picker.lsp_implementations() end,                     desc = "[G]oto [I]mplementation" },
