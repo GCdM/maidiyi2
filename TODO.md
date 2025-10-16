@@ -4,9 +4,6 @@ This document outlines suggested improvements and enhancements for the current N
 
 ## Plugins to add
 - `trouble.nvim`
-- `gitsigns.nvim` _finish configuring_
-- `diffview.nvim` _finish configuring_
-- `git-conflict.nvim`
 
 ## General enhancements
 
@@ -40,12 +37,18 @@ This document outlines suggested improvements and enhancements for the current N
 - Auto-resize windows on terminal resize
 - Remember cursor position when reopening files
 
+### 6. Make explorer open full screen
+- Only when first opening neovim
+- Not when reloading a pre existing session
+
 ### 7. Performance Optimizations
 **Potential Areas**:
 - Lazy load more plugins based on filetypes
 - Optimize startup time with lazy loading strategies
 - Review and optimize plugin configurations
 
+### 8. Make lazygit "e" not open "pane?"
+- It should simply open the buffer
 
 ### 9. Configuration Validation
 **Missing**: Validation of configuration settings
