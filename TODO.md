@@ -10,11 +10,8 @@ This document outlines suggested improvements and enhancements for the current N
 
 ## General enhancements
 
-### 1. Organise plugin clumps
-**Current**: specs that handle a theme of plugins are called `_theme.lua`
-
-**Suggestions**:
-- For `git` we'll have many plugins, so might be worth having a subdirectory
+### 1. Fix session management
+**Current**: persistence.nvim seems to not be working as expected
 
 ### 2. Enhanced Git Integration
 **Current**: Only has lazygit integration via snacks.nvim
@@ -24,6 +21,15 @@ This document outlines suggested improvements and enhancements for the current N
 - Add more git-related keymaps and workflows
 - Consider `diffview.nvim` for better diff viewing
 
+### 3. Add copy and paste to clipboard management
+- Keep yank and paste register from vim separate from system clipboard
+- Add special keymaps specific to the system register
+
+### 4. Fix Snacks file picker
+- git_files seems better but only works in a git repository
+- not sure what smart is
+- check if there are others
+- and see if you can configure the main one to include hidden files
 
 ### 5. Enhanced Autocommands
 **Current**: Only has basic highlight on yank
