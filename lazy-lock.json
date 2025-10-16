@@ -1,9 +1,9 @@
 {
   "blink.cmp": { "branch": "main", "commit": "485c03400608cb6534bbf84da8c1c471fc4808c0" },
-  "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "fidget.nvim": { "branch": "main", "commit": "3f5475949679953af6d78654db29b944fa826e6a" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
   "gitsigns.nvim": { "branch": "main", "commit": "1ee5c1fd068c81f9dd06483e639c2aa4587dc197" },
+  "grapple.nvim": { "branch": "main", "commit": "b41ddfc1c39f87f3d1799b99c2f0f1daa524c5f7" },
   "kanagawa-paper.nvim": { "branch": "master", "commit": "b0c4d7ce2d3671ff3188030e585cc0c0a7b5e3a3" },
   "kanagawa.nvim": { "branch": "master", "commit": "aef7f5cec0a40dbe7f3304214850c472e2264b10" },
   "lazy.nvim": { "branch": "main", "commit": "1ea3c4085785f460fb0e46d2fe1ee895f5f9e7c1" },
@@ -12,6 +12,7 @@
   "mason.nvim": { "branch": "main", "commit": "ad7146aa61dcaeb54fa900144d768f040090bff0" },
   "mini.nvim": { "branch": "main", "commit": "8a7cf7eee8d89bd1b83f6d72f7f3b5598e7ae2cb" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
+  "nvim-web-devicons": { "branch": "master", "commit": "b8221e42cf7287c4dcde81f232f58d7b947c210d" },
   "persistence.nvim": { "branch": "main", "commit": "51eef57272742b773468949f6bd0503ec3f83874" },
   "snacks.nvim": { "branch": "main", "commit": "454ba02d69347c0735044f159b95d2495fc79a73" },
   "tokyonight.nvim": { "branch": "main", "commit": "d14614cbfc63b6037bfccd48bb982d2ad2003352" },
