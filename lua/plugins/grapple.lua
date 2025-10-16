@@ -9,9 +9,9 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   cmd = "Grapple",
   keys = {
-    { "<leader>m", "<cmd>Grapple toggle<cr>", desc = "Grapple toggle tag" },
-    { "<leader>M", "<cmd>Grapple toggle_tags<cr>", desc = "Grapple open tags window" },
-    { "<leader>]", "<cmd>Grapple cycle_tags next<cr>", desc = "Grapple cycle next tag" },
-    { "<leader>[", "<cmd>Grapple cycle_tags prev<cr>", desc = "Grapple cycle prev tag" },
+    { "<leader>m", "<cmd>Grapple toggle<cr>", desc = "[M]ark Buffer (Grapple)" },
+    { "<A-m>", "<cmd>Grapple toggle_tags<cr>", desc = "Open Grapple [M]arked" },
+    { "<A-]>", "<cmd>Grapple cycle_tags next<cr>", desc = "Next Grappled Mark" },
+    { "<A-[>", "<cmd>Grapple cycle_tags prev<cr>", desc = "Prev Grappled Mark" },
   },
 }
