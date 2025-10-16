@@ -227,7 +227,7 @@ return {
             return
           end
           for _, client in ipairs(clients) do
-            client.stop(force)
+            client.stop(client, force)
             vim.notify('Stopped LSP client: ' .. client.name)
           end
         else
@@ -238,7 +238,7 @@ return {
             return
           end
           for _, client in ipairs(clients) do
-            client.stop(force)
+            client.stop(client, force)
             vim.notify('Stopped LSP client: ' .. client.name)
           end
         end
@@ -268,7 +268,7 @@ return {
           end
           for _, client in ipairs(clients) do
             local name = client.name
-            client.stop()
+            client.stop(client)
             vim.defer_fn(function()
               vim.lsp.enable(name)
               vim.notify('Restarted LSP client: ' .. name)
@@ -282,7 +282,7 @@ return {
             return
           end
           for _, client in ipairs(clients) do
-            client.stop()
+            client.stop(client)
             vim.defer_fn(function()
               vim.lsp.enable(client_name)
               vim.notify('Restarted LSP client: ' .. client_name)

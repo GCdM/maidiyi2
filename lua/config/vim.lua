@@ -35,7 +35,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.inccommand = 'split'
 
-vim.opt.laststatus = 3
+vim.opt.laststatus = 2 -- 2 = always, 3 = only focused window
 vim.opt.list = true
 vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
 vim.opt.signcolumn = 'yes'

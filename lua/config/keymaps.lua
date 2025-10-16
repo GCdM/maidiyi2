@@ -67,10 +67,9 @@ map('n', 'gcO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Commen
 
 -- Diagnostic keymaps
 local go_to_diagnostic = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
   severity = severity and vim.diagnostic.severity[severity] or nil
   return function()
-    go({ severity = severity })
+    vim.diagnostic.jump({ count = next and 1 or -1, severity = severity })
   end
 end
 map('n', '<leader>fq', vim.diagnostic.setloclist, { desc = '[F]ile [Q]uickfix list' })
