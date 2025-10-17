@@ -12,3 +12,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Needs work - currently doesn't load LSPs
+
+-- -- Auto-restore persistence session
+-- vim.api.nvim_create_autocmd('User', {
+--   pattern = 'VeryLazy',
+--   desc = 'Restore session for current directory',
+--   group = vim.api.nvim_create_augroup('persistence-autoload', { clear = true }),
+--   callback = function()
+--     -- Only load session if nvim was started with no arguments
+--     if vim.fn.argc(-1) == 0 then
+--       require('persistence').load()
+--     end
+--   end,
+-- })
+

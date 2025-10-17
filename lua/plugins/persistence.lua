@@ -9,21 +9,6 @@ return {
     -- Use git branch in session name
     branch = true,
   },
-  config = function(_, opts)
-    require('persistence').setup(opts)
-
-    -- Auto-restore session for current directory
-    vim.api.nvim_create_autocmd('VimEnter', {
-      group = vim.api.nvim_create_augroup('persistence_autoload', { clear = true }),
-      callback = function()
-        -- Only load the session if nvim was started with no arguments
-        if vim.fn.argc(-1) == 0 then
-          require('persistence').load()
-        end
-      end,
-      nested = true,
-    })
-  end,
   keys = {
     {
       '<leader>qs',
