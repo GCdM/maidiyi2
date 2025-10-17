@@ -12,7 +12,23 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Needs work - currently doesn't load LSPs
+-- Global toggle for format on save
+vim.g.format_on_save_enabled = true
+
+-- Format on save for specific filetypes
+vim.api.nvim_create_autocmd('BufWritePre', {
+  desc = 'Format on save for specific filetypes',
+  group = vim.api.nvim_create_augroup('format-on-save', { clear = true }),
+  callback = function()
+    -- Check if format on save is enabled
+    if vim.g.format_on_save_enabled then
+      vim.lsp.buf.format({ async = false })
+    end
+  end,
+})
+
+
+-- TODO: Needs work - currently doesn't load LSPs
 
 -- -- Auto-restore persistence session
 -- vim.api.nvim_create_autocmd('User', {
@@ -26,4 +42,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 --     end
 --   end,
 -- })
-

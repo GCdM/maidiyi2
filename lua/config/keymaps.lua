@@ -82,3 +82,14 @@ map('n', ']w', go_to_diagnostic(true, 'WARN'), { desc = 'Next Warning' })
 map('n', '[w', go_to_diagnostic(false, 'WARN'), { desc = 'Prev Warning' })
 
 map('n', '<leader>L', '<cmd>Lazy<cr>', { desc = '[*L*]azy' })
+
+-- Toggle format on save
+map('n', '<leader>tf', function()
+  vim.g.format_on_save_enabled = not vim.g.format_on_save_enabled
+  if vim.g.format_on_save_enabled then
+    vim.notify('Format on save enabled', vim.log.levels.INFO)
+  else
+    vim.notify('Format on save disabled', vim.log.levels.DEBUG)
+  end
+  local status = vim.g.format_on_save_enabled and 'enabled' or 'disabled'
+end, { desc = '[T]oggle [F]ormat on save' })
