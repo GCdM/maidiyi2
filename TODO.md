@@ -4,19 +4,13 @@ This document outlines suggested improvements and enhancements for the current N
 
 ## Plugins to add
 - `trouble.nvim`
+- `chainsaw.nvim`
+- todo highlighting
 
 ## General enhancements
 
 ### 1. Fix session management
-**Current**: persistence.nvim seems to not be working as expected
-
-### 2. Enhanced Git Integration
-**Current**: Only has lazygit integration via snacks.nvim
-
-**Suggestions**:
-- Add `gitsigns.nvim` for git diff indicators in sign column
-- Add more git-related keymaps and workflows
-- Consider `diffview.nvim` for better diff viewing
+- persistence.nvim seems to not be working as expected
 
 ### 3. Add copy and paste to clipboard management
 - Keep yank and paste register from vim separate from system clipboard
@@ -27,15 +21,6 @@ This document outlines suggested improvements and enhancements for the current N
 - not sure what smart is
 - check if there are others
 - and see if you can configure the main one to include hidden files
-
-### 5. Enhanced Autocommands
-**Current**: Only has basic highlight on yank
-
-**Suggestions**:
-- Format on save for specific filetypes
-    - Add a toggle for turning this on/off
-- Auto-resize windows on terminal resize
-- Remember cursor position when reopening files
 
 ### 6. Make explorer open full screen
 - Only when first opening neovim
@@ -87,6 +72,17 @@ should be a way to make them not clash.
 ### 14. Improve `<leader>Q` to quit everything
 **Problem**: If on terminal, only closes terminal
 
+### 15. Extra keybinding
+- Add keybinding for copying (to system) buffer file path (relative to project root)
+- Better buffer/window management
+    - Keymap for closing other buffers
+    - Keymap for closing other windows
+- Save without formatting <C-S-s>
+
+### Swap `ts_ls` for `typescript-tools`
+- Check Claude for benefits and interoperability with Biome
+
+
 ## Completed ✅
 
 - ✅ Complete Mini.lua Configuration (added autopairs, surround, textobjects, bracketed navigation, and icons)
@@ -97,9 +93,5 @@ should be a way to make them not clash.
 - ✅ Plugin architecture modernization
 - ✅ Custom LSP configuration integration
 
-## Notes
-
-- Most issues are minor optimizations rather than fundamental problems
-- Current configuration is solid and follows modern best practices
-- Focus on high priority issues first for maximum impact
-- Consider your personal workflow when implementing enhancements
+## Learn
+- How to fold in neovim

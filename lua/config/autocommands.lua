@@ -27,6 +27,14 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
+-- Auto-resize windows on terminal resize
+vim.api.nvim_create_autocmd('VimResized', {
+  desc = 'Auto-resize windows when terminal is resized',
+  group = vim.api.nvim_create_augroup('auto-resize-windows', { clear = true }),
+  callback = function()
+    vim.cmd('tabdo wincmd =')
+  end,
+})
 
 -- TODO: Needs work - currently doesn't load LSPs
 
