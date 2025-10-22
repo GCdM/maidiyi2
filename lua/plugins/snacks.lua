@@ -7,7 +7,10 @@ return {
     -- bigfile = { enabled = true },
     -- dashboard = { enabled = true },
 
-    explorer = { enabled = true },
+    explorer = {
+      enabled = true,
+      replace_netrw = false
+    },
     indent = { enabled = true },
     input = { enabled = true },
 
@@ -109,6 +112,7 @@ return {
 
     --- -- Buffer
     { "<leader>bd", function() Snacks.bufdelete() end,                                      desc = "[B]uffer [D]rop" },
+    { "<leader>bo", function() Snacks.bufdelete.other() end,                                desc = "[B]uffer Drop [O]thers" },
     { "<leader>bf", function() Snacks.picker.buffers() end,                                 desc = "[B]uffer [F]ind" },
     { "<leader>bS", function() Snacks.scratch() end,                                        desc = "[B]uffer [S]cratch" },
 
