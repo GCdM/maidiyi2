@@ -79,14 +79,14 @@ return {
             end
 
             return statusline.combine_groups({
-              { hl = 'MiniStatuslineDevinfo',  strings = { git } },
+              { hl = grapple_hl,               strings = { grapple } },
               { hl = mode_hl,                  strings = { search, diagnostics } },
               { hl = 'MiniStatuslineFilename', strings = { filename } },
               '%<', -- Mark general truncate point
               '%=', -- Separator between left and right aligned items
-              { hl = grapple_hl, strings = { grapple } },
               { hl = 'MiniStatuslineFileinfo', strings = { filetype } },
               { hl = mode_hl,                  strings = { mode } },
+              { hl = 'MiniStatuslineDevinfo',  strings = { git } },
             })
           end,
         },
