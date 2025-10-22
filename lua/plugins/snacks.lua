@@ -9,7 +9,7 @@ return {
 
     explorer = {
       enabled = true,
-      replace_netrw = false
+      replace_netrw = false,
     },
     indent = { enabled = true },
     input = { enabled = true },
@@ -22,6 +22,7 @@ return {
     picker = {
       sources = {
         explorer = {
+          hidden = true,
           layout = {
             layout = {
               position = "right",

@@ -13,16 +13,6 @@ This document outlines suggested improvements and enhancements for the current N
 - Keep yank and paste register from vim separate from system clipboard
 - Add special keymaps specific to the system register
 
-### 4. Fix Snacks file picker
-- git_files seems better but only works in a git repository
-- not sure what smart is
-- check if there are others
-- and see if you can configure the main one to include hidden files
-
-### 6. Make explorer open full screen
-- Only when first opening neovim
-- Not when reloading a pre existing session
-
 ### 7. Performance Optimizations
 **Potential Areas**:
 - Lazy load more plugins based on filetypes
@@ -75,6 +65,11 @@ should be a way to make them not clash.
     - Keymap for closing other buffers
     - Keymap for closing other windows
 - Save without formatting <C-S-s>
+
+### 16. Add floating help
+- Research best options
+- If no good ones, implement with Snack.win
+- Ask to "hijack" traditional help window
 
 ### Swap `ts_ls` for `typescript-tools`
 - Check Claude for benefits and interoperability with Biome
