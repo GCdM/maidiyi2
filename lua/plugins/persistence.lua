@@ -9,6 +9,11 @@ return {
     -- Use git branch in session name
     branch = true,
   },
+  init = function()
+    vim.schedule(function()
+      require('persistence').load()
+    end)
+  end,
   keys = {
     {
       '<leader>qs',

@@ -9,9 +9,6 @@ This document outlines suggested improvements and enhancements for the current N
 
 ## General enhancements
 
-### 1. Fix session management
-- persistence.nvim seems to not be working as expected
-
 ### 3. Add copy and paste to clipboard management
 - Keep yank and paste register from vim separate from system clipboard
 - Add special keymaps specific to the system register
