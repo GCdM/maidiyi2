@@ -70,8 +70,9 @@ map("n", "<A-S-j>", "yyp", { desc = "Copy line down" })
 map("n", "<A-S-k>", "yyP", { desc = "Copy line up" })
 
 -- Manage buffers
-map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Select previous buffer" })
-map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Select next buffer" })
+-- Note: Buffer navigation (<S-h>/<S-l>) is now managed by barbar.nvim (see lua/plugins/barbar.lua)
+-- map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Select previous buffer" })
+-- map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Select next buffer" })
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })

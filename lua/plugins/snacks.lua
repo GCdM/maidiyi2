@@ -316,20 +316,7 @@ return {
 		},
 
 		--- -- Buffer
-		{
-			"<leader>bd",
-			function()
-				Snacks.bufdelete()
-			end,
-			desc = "[B]uffer [D]rop",
-		},
-		{
-			"<leader>bo",
-			function()
-				Snacks.bufdelete.other()
-			end,
-			desc = "[B]uffer Drop [O]thers",
-		},
+		-- Note: Buffer close/delete keybindings moved to barbar.lua for unified management
 		{
 			"<leader>bf",
 			function()
