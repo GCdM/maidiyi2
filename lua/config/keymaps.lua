@@ -6,7 +6,7 @@
 local map = vim.keymap.set
 
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
-map({ "i", "x", "n", "s" }, "<C-S-s>", "<cmd>noautocmd w<cr><esc>", { desc = "Save without formatting" })
+-- map({ "i", "x", "n", "s" }, "<C-S-s>", "<cmd>noautocmd w<cr><esc>", { desc = "Save without formatting" })
 map("n", "<leader>Q", "<cmd>qa<cr>", { desc = "[*Q*]uit All" })
 map("n", "<leader>D", "<cmd>:bd<cr>", { desc = "[*D*]rop buffer & window" })
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
