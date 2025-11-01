@@ -54,14 +54,10 @@ configuration quality enhancements.
 - [ ] 13: Add configuration validation
   - [ ] 13.1: Add checks for required tools/binaries
   - [ ] 13.2: Add validation for plugin configurations on startup
-  - [ ] 13.3: Add health checks for custom configurations
 
 - [ ] 14: Create configuration documentation
-  - [ ] 14.1: Create `KEYMAPS.md` documenting all custom keymaps
-  - [ ] 14.2: Add inline documentation for complex configurations
-  - [ ] 14.3: Document custom functions and their purposes
-
-- [ ] 15: Choose a "bufferline" style plugin for buffer management
+  - [ ] 14.1: Add inline documentation for complex configurations
+  - [ ] 14.2: Document custom functions and their purposes
 
 - [x] 16: Configure dprint for markdown formatting
 
@@ -90,14 +86,9 @@ configuration quality enhancements.
 
 - [ ] 1: Learn
   - [ ] How to fold in Neovim
+- [ ] 2: Star every plugin
 
-## Notes
-
-- Tasks 1-14 are enhancements and improvements
-- Task 15 is a learning objective
-- Several tasks involve the snacks module (terminal, explorer)
 - Some items require research before implementation (tasks 4, 11, 12)
-- Previously completed items are tracked in TODO.md Completed section
 - Consider dependencies: clipboard management (task 2) should be done before
   related keybindings (task 10.1)
 - Configuration validation (task 13) and documentation (task 14) can be done in
