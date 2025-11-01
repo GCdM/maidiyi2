@@ -27,7 +27,7 @@ This plan outlines improvements and enhancements for the Neovim configuration, i
     - [ ] 6.1: Configure file picker to include hidden files
     - [ ] 6.2: Enable gitignored files in file picker
 
-- [ ] 7: Enable gitignored files in explorer
+- [x] 7: Enable gitignored files in explorer
 
 - [ ] 8: Fix window clash between terminal and explorer
     - [ ] 8.1: Research snacks module configuration options
