@@ -9,9 +9,9 @@ This plan outlines improvements and enhancements for the Neovim configuration, i
     - [ ] 1.2: Install and configure `chainsaw.nvim`
     - [ ] 1.3: Install and configure todo highlighting plugin
 
-- [ ] 2: Implement clipboard management system
-    - [ ] 2.1: Configure separate yank/paste registers from system clipboard
-    - [ ] 2.2: Create special keymaps for system clipboard operations
+- [x] 2: Implement clipboard management system
+    - [x] 2.1: Configure separate yank/paste registers from system clipboard
+    - [x] 2.2: Create special keymaps for system clipboard operations
 
 - [x] 3: Fix lazygit "e" behavior
     - [x] 3.1: Configure lazygit to open buffers directly instead of panes
@@ -37,7 +37,7 @@ This plan outlines improvements and enhancements for the Neovim configuration, i
     - [ ] 9.1: Fix quit command to close everything instead of just terminal
 
 - [ ] 10: Add additional keybindings
-    - [ ] 10.1: Add keybinding for copying buffer file path (relative to project root) to system clipboard
+    - [x] 10.1: Add keybinding for copying buffer file path (relative to project root) to system clipboard
     - [ ] 10.2: Add keymap for closing other buffers
     - [ ] 10.3: Add keymap for closing other windows
     - [ ] 10.4: Add save without formatting keybinding (`<C-S-s>`)
@@ -68,6 +68,9 @@ This plan outlines improvements and enhancements for the Neovim configuration, i
 - [ ] 17: Configure explorer to "hijack" netrw (in fullscreen)
     - [ ] 17.1: When opening a directory with `nvim` e.g. `nvim .`, open explorer in fullscreen
     - [ ] 17.2: When opening explorer with keybinding `\` open on right-hand side
+
+- [ ] 18: Save without formatting keybinding
+    - [ ] 18.1: `<C-S-s>` unless this conflicts with some existing behaviour
 
 ## To do
 
