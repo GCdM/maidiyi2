@@ -13,8 +13,8 @@ This plan outlines improvements and enhancements for the Neovim configuration, i
     - [ ] 2.1: Configure separate yank/paste registers from system clipboard
     - [ ] 2.2: Create special keymaps for system clipboard operations
 
-- [ ] 3: Fix lazygit "e" behavior
-    - [ ] 3.1: Configure lazygit to open buffers directly instead of panes
+- [x] 3: Fix lazygit "e" behavior
+    - [x] 3.1: Configure lazygit to open buffers directly instead of panes
 
 - [ ] 4: Diagnose and fix Lazy startup focus issue
     - [ ] 4.1: Research similar reports about Lazy package manager cursor focus
@@ -63,7 +63,15 @@ This plan outlines improvements and enhancements for the Neovim configuration, i
 
 - [ ] 15: Choose a "bufferline" style plugin for buffer management
 
-- [ ] 16: Learn 
+- [ ] 16: Configure dprint for markdown formatting
+
+- [ ] 17: Configure explorer to "hijack" netrw (in fullscreen)
+    - [ ] 17.1: When opening a directory with `nvim` e.g. `nvim .`, open explorer in fullscreen
+    - [ ] 17.2: When opening explorer with keybinding `\` open on right-hand side
+
+## To do
+
+- [ ] 1: Learn 
     - [ ] How to fold in Neovim
 
 ## Notes

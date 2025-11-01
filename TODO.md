@@ -16,11 +16,6 @@ This document outlines suggested improvements and enhancements for the current N
 ### Make lazygit "e" not open "pane?"
 - It should simply open the buffer
 
-
-
-
-
-
 ### Diagnose Why Lazy Starts Unfocused
 **Problem**: When opening neovim and lazy auto installs new packages
 the cursor starts in the background.
@@ -37,6 +32,8 @@ it reaches the boundaries. Because of `vim.scrolloff = 8`
 - Enable gitignored files
 
 ### Enable gitignored files in explorer
+
+### Figure out how to replace netrw in full screen on first open with Snacks.explorer
 
 ### Fix Window Clash Issues
 **Problem**: Opening terminal clashes with opening explorer.
