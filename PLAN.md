@@ -24,13 +24,9 @@ configuration quality enhancements.
   - [ ] 4.1: Research similar reports about Lazy package manager cursor focus
   - [ ] 4.2: Implement fix for cursor starting in background during auto-install
 
-- [ ] 5: Enable scrolling with cursor off-screen
-  - [ ] 5.1: Resolve conflict between `<C-e>`/`<C-y>` scrolling and
-        `vim.scrolloff = 8`
-
-- [ ] 6: Enable hidden files in file picker
-  - [ ] 6.1: Configure file picker to include hidden files
-  - [ ] 6.2: Enable gitignored files in file picker
+- [x] 6: Enable hidden files in file picker
+  - [x] 6.1: Configure file picker to include hidden files
+  - [x] 6.2: Enable gitignored files in file picker
 
 - [x] 7: Enable gitignored files in explorer
 
@@ -77,6 +73,17 @@ configuration quality enhancements.
   - [x] 18.1: `<C-S-s>` unless this conflicts with some existing behaviour
 
 - [ ] 19: Choose a markdown preview plugin
+
+- [ ] 20: Test how centering page jumps feels
+  - [ ] 20.1: Add `zz` to `<C-d>` & `<C-u>`
+  - [ ] 20.1: Add `zz` to `<C-d>` & `<C-u>`
+
+- [ ] 21: Find plugin that improves "f" and "t". They should be repeatable and
+      multlined
+
+- [ ] 22: Parse differences between new and old maidiyi
+  - [ ] 22.1: Create a list of the differences
+  - [ ] 22.2: Pick ones to copy over
 
 ## To do
 

@@ -1,3 +1,10 @@
+-- Common picker source configuration for showing hidden and gitignored files
+local picker_source_defaults = {
+	hidden = true,
+	ignored = true,
+	exclude = { ".git" },
+}
+
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -21,17 +28,17 @@ return {
 
 		picker = {
 			sources = {
-				explorer = {
-					hidden = true,
-					ignored = true,
-					exclude = { ".git" },
+				explorer = vim.tbl_extend("force", picker_source_defaults, {
 					layout = {
 						layout = {
 							position = "right",
 							width = 0.5,
 						},
 					},
-				},
+				}),
+				files = picker_source_defaults,
+				smart = picker_source_defaults,
+				grep = picker_source_defaults,
 			},
 		},
 
