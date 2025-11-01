@@ -22,23 +22,23 @@ vim.opt.undofile = true
 
 -- Create and set backup/undo directories
 local function ensure_dir(path)
-  if vim.fn.isdirectory(path) == 0 then
-    vim.fn.mkdir(path, 'p')
-  end
-  return path
+	if vim.fn.isdirectory(path) == 0 then
+		vim.fn.mkdir(path, "p")
+	end
+	return path
 end
 
-vim.opt.undodir = ensure_dir(os.getenv('HOME') .. '/.vim/undo')
-vim.opt.backupdir = ensure_dir(os.getenv('HOME') .. '/.vim/backup')
+vim.opt.undodir = ensure_dir(os.getenv("HOME") .. "/.vim/undo")
+vim.opt.backupdir = ensure_dir(os.getenv("HOME") .. "/.vim/backup")
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 vim.opt.laststatus = 2 -- 2 = always, 3 = only focused window
 vim.opt.list = true
-vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
-vim.opt.signcolumn = 'yes'
+vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
+vim.opt.signcolumn = "yes"
 vim.opt.breakindent = true
 
 vim.opt.timeoutlen = 500
