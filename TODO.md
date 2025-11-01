@@ -9,64 +9,53 @@ This document outlines suggested improvements and enhancements for the current N
 
 ## General enhancements
 
-### 3. Add copy and paste to clipboard management
+### Add copy and paste to clipboard management
 - Keep yank and paste register from vim separate from system clipboard
 - Add special keymaps specific to the system register
 
-### 7. Performance Optimizations
-**Potential Areas**:
-- Lazy load more plugins based on filetypes
-- Optimize startup time with lazy loading strategies
-- Review and optimize plugin configurations
-
-### 8. Make lazygit "e" not open "pane?"
+### Make lazygit "e" not open "pane?"
 - It should simply open the buffer
 
-### 9. Configuration Validation
-**Missing**: Validation of configuration settings
 
-**Suggestions**:
-- Add checks for required tools/binaries
-- Validate plugin configurations on startup
-- Add health checks for custom configurations
 
-### 10. Add Configuration Documentation
-**Missing**: Documentation for custom configurations and keymaps
 
-**Suggestions**:
-- Create `KEYMAPS.md` documenting all custom keymaps
-- Add inline documentation for complex configurations
-- Document custom functions and their purposes
 
-### 11. Diagnose Why Lazy Starts Unfocused
+
+### Diagnose Why Lazy Starts Unfocused
 **Problem**: When opening neovim and lazy auto installs new packages
 the cursor starts in the background.
 
 **Suggestions**:
 - Search the web for similar reports
 
-### 12. Allow "Scrolling" With Cursor off screen
+### Allow "Scrolling" With Cursor off screen
 **Problem**: Scrolling w/ <C-e> and <C-y> moves the cursor as
 it reaches the boundaries. Because of `vim.scrolloff = 8`
 
-### 13. Fix Window Clash Issues
+### Enable hidden files in file picker
+- Currently doesn't include hidden files
+- Enable gitignored files
+
+### Enable gitignored files in explorer
+
+### Fix Window Clash Issues
 **Problem**: Opening terminal clashes with opening explorer.
 
 **Suggestions**:
 - Both terminal and explorer are from snacks modules, so there
 should be a way to make them not clash.
 
-### 14. Improve `<leader>Q` to quit everything
+### Improve `<leader>Q` to quit everything
 **Problem**: If on terminal, only closes terminal
 
-### 15. Extra keybinding
+### Extra keybinding
 - Add keybinding for copying (to system) buffer file path (relative to project root)
 - Better buffer/window management
     - Keymap for closing other buffers
     - Keymap for closing other windows
 - Save without formatting <C-S-s>
 
-### 16. Add floating help
+### Add floating help
 - Research best options
 - If no good ones, implement with Snack.win
 - Ask to "hijack" traditional help window
@@ -74,6 +63,21 @@ should be a way to make them not clash.
 ### Swap `ts_ls` for `typescript-tools`
 - Check Claude for benefits and interoperability with Biome
 
+### Configuration Validation
+**Missing**: Validation of configuration settings
+
+**Suggestions**:
+- Add checks for required tools/binaries
+- Validate plugin configurations on startup
+- Add health checks for custom configurations
+
+### Add Configuration Documentation
+**Missing**: Documentation for custom configurations and keymaps
+
+**Suggestions**:
+- Create `KEYMAPS.md` documenting all custom keymaps
+- Add inline documentation for complex configurations
+- Document custom functions and their purposes
 
 ## Completed ✅
 
