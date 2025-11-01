@@ -34,11 +34,11 @@ configuration quality enhancements.
   - [ ] 8.1: Research snacks module configuration options
   - [ ] 8.2: Implement solution to prevent terminal/explorer conflicts
 
-- [ ] 10: Add additional keybindings
+- [x] 10: Add additional keybindings
   - [x] 10.1: Add keybinding for copying buffer file path (relative to project
         root) to system clipboard
-  - [ ] 10.2: Add keymap for closing other buffers
-  - [ ] 10.3: Add keymap for closing other windows
+  - [x] 10.2: Add keymap for closing other buffers
+  - [x] 10.3: Add keymap for closing other windows
 
 - [ ] 11: Implement floating help window
   - [ ] 11.1: Research best options for floating help
@@ -49,6 +49,7 @@ configuration quality enhancements.
 - [ ] 12: Swap `ts_ls` for `typescript-tools`
   - [ ] 12.1: Research benefits and interoperability with Biome
   - [ ] 12.2: Implement replacement configuration
+  - [ ] 12.3: Or preferably, get rid of it and keep just Biome
 
 - [ ] 13: Add configuration validation
   - [ ] 13.1: Add checks for required tools/binaries
@@ -59,11 +60,6 @@ configuration quality enhancements.
   - [ ] 14.2: Document custom functions and their purposes
 
 - [x] 16: Configure dprint for markdown formatting
-
-- [ ] 17: Configure explorer to "hijack" netrw (in fullscreen)
-  - [ ] 17.1: When opening a directory with `nvim` e.g. `nvim .`, open explorer
-        in fullscreen
-  - [ ] 17.2: When opening explorer with keybinding `\` open on right-hand side
 
 - [x] 18: Save without formatting keybinding
   - [x] 18.1: `<C-S-s>` unless this conflicts with some existing behaviour
@@ -80,6 +76,10 @@ configuration quality enhancements.
 - [ ] 22: Parse differences between new and old maidiyi
   - [ ] 22.1: Create a list of the differences
   - [ ] 22.2: Pick ones to copy over
+
+- [ ] 23: Add UI toggles
+  - [ ] 23.1: Relative line numbers
+  - [ ] 23.2: Dark vs light colourscheme mode
 
 ## To do
 
