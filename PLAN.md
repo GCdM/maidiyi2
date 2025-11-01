@@ -1,80 +1,83 @@
 # Project Plan
 
-This plan outlines improvements and enhancements for the Neovim configuration, including new plugins, clipboard management, UI improvements, keybindings, and configuration quality enhancements.
+This plan outlines improvements and enhancements for the Neovim configuration,
+including new plugins, clipboard management, UI improvements, keybindings, and
+configuration quality enhancements.
 
 ## Tasks
 
 - [ ] 1: Add new plugins
-    - [ ] 1.1: Install and configure `trouble.nvim`
-    - [ ] 1.2: Install and configure `chainsaw.nvim`
-    - [ ] 1.3: Install and configure todo highlighting plugin
+  - [ ] 1.1: Install and configure `trouble.nvim`
+  - [ ] 1.2: Install and configure `chainsaw.nvim`
+  - [ ] 1.3: Install and configure todo highlighting plugin
 
 - [x] 2: Implement clipboard management system
-    - [x] 2.1: Configure separate yank/paste registers from system clipboard
-    - [x] 2.2: Create special keymaps for system clipboard operations
+  - [x] 2.1: Configure separate yank/paste registers from system clipboard
+  - [x] 2.2: Create special keymaps for system clipboard operations
 
 - [x] 3: Fix lazygit "e" behavior
-    - [x] 3.1: Configure lazygit to open buffers directly instead of panes
+  - [x] 3.1: Configure lazygit to open buffers directly instead of panes
 
 - [ ] 4: Diagnose and fix Lazy startup focus issue
-    - [ ] 4.1: Research similar reports about Lazy package manager cursor focus
-    - [ ] 4.2: Implement fix for cursor starting in background during auto-install
+  - [ ] 4.1: Research similar reports about Lazy package manager cursor focus
+  - [ ] 4.2: Implement fix for cursor starting in background during auto-install
 
 - [ ] 5: Enable scrolling with cursor off-screen
-    - [ ] 5.1: Resolve conflict between `<C-e>`/`<C-y>` scrolling and `vim.scrolloff = 8`
+  - [ ] 5.1: Resolve conflict between `<C-e>`/`<C-y>` scrolling and
+        `vim.scrolloff = 8`
 
 - [ ] 6: Enable hidden files in file picker
-    - [ ] 6.1: Configure file picker to include hidden files
-    - [ ] 6.2: Enable gitignored files in file picker
+  - [ ] 6.1: Configure file picker to include hidden files
+  - [ ] 6.2: Enable gitignored files in file picker
 
 - [x] 7: Enable gitignored files in explorer
 
 - [ ] 8: Fix window clash between terminal and explorer
-    - [ ] 8.1: Research snacks module configuration options
-    - [ ] 8.2: Implement solution to prevent terminal/explorer conflicts
-
-- [ ] 9: Improve `<leader>Q` quit behavior
-    - [ ] 9.1: Fix quit command to close everything instead of just terminal
+  - [ ] 8.1: Research snacks module configuration options
+  - [ ] 8.2: Implement solution to prevent terminal/explorer conflicts
 
 - [ ] 10: Add additional keybindings
-    - [x] 10.1: Add keybinding for copying buffer file path (relative to project root) to system clipboard
-    - [ ] 10.2: Add keymap for closing other buffers
-    - [ ] 10.3: Add keymap for closing other windows
+  - [x] 10.1: Add keybinding for copying buffer file path (relative to project
+        root) to system clipboard
+  - [ ] 10.2: Add keymap for closing other buffers
+  - [ ] 10.3: Add keymap for closing other windows
 
 - [ ] 11: Implement floating help window
-    - [ ] 11.1: Research best options for floating help
-    - [ ] 11.2: Implement solution (either existing plugin or custom with Snack.win)
-    - [ ] 11.3: Configure to hijack traditional help window
+  - [ ] 11.1: Research best options for floating help
+  - [ ] 11.2: Implement solution (either existing plugin or custom with
+        Snack.win)
+  - [ ] 11.3: Configure to hijack traditional help window
 
 - [ ] 12: Swap `ts_ls` for `typescript-tools`
-    - [ ] 12.1: Research benefits and interoperability with Biome
-    - [ ] 12.2: Implement replacement configuration
+  - [ ] 12.1: Research benefits and interoperability with Biome
+  - [ ] 12.2: Implement replacement configuration
 
 - [ ] 13: Add configuration validation
-    - [ ] 13.1: Add checks for required tools/binaries
-    - [ ] 13.2: Add validation for plugin configurations on startup
-    - [ ] 13.3: Add health checks for custom configurations
+  - [ ] 13.1: Add checks for required tools/binaries
+  - [ ] 13.2: Add validation for plugin configurations on startup
+  - [ ] 13.3: Add health checks for custom configurations
 
 - [ ] 14: Create configuration documentation
-    - [ ] 14.1: Create `KEYMAPS.md` documenting all custom keymaps
-    - [ ] 14.2: Add inline documentation for complex configurations
-    - [ ] 14.3: Document custom functions and their purposes
+  - [ ] 14.1: Create `KEYMAPS.md` documenting all custom keymaps
+  - [ ] 14.2: Add inline documentation for complex configurations
+  - [ ] 14.3: Document custom functions and their purposes
 
 - [ ] 15: Choose a "bufferline" style plugin for buffer management
 
 - [ ] 16: Configure dprint for markdown formatting
 
 - [ ] 17: Configure explorer to "hijack" netrw (in fullscreen)
-    - [ ] 17.1: When opening a directory with `nvim` e.g. `nvim .`, open explorer in fullscreen
-    - [ ] 17.2: When opening explorer with keybinding `\` open on right-hand side
+  - [ ] 17.1: When opening a directory with `nvim` e.g. `nvim .`, open explorer
+        in fullscreen
+  - [ ] 17.2: When opening explorer with keybinding `\` open on right-hand side
 
 - [x] 18: Save without formatting keybinding
-    - [x] 18.1: `<C-S-s>` unless this conflicts with some existing behaviour
+  - [x] 18.1: `<C-S-s>` unless this conflicts with some existing behaviour
 
 ## To do
 
-- [ ] 1: Learn 
-    - [ ] How to fold in Neovim
+- [ ] 1: Learn
+  - [ ] How to fold in Neovim
 
 ## Notes
 
@@ -83,18 +86,21 @@ This plan outlines improvements and enhancements for the Neovim configuration, i
 - Several tasks involve the snacks module (terminal, explorer)
 - Some items require research before implementation (tasks 4, 11, 12)
 - Previously completed items are tracked in TODO.md Completed section
-- Consider dependencies: clipboard management (task 2) should be done before related keybindings (task 10.1)
-- Configuration validation (task 13) and documentation (task 14) can be done in parallel once core features are stable
+- Consider dependencies: clipboard management (task 2) should be done before
+  related keybindings (task 10.1)
+- Configuration validation (task 13) and documentation (task 14) can be done in
+  parallel once core features are stable
 
 ---
 
 <!-- SNAPSHOT: DO NOT EDIT BELOW THIS LINE -->
+
 ## Snapshot Metadata
 
-**Source File:** TODO.md
-**Last Updated:** 2025-11-01
+**Source File:** TODO.md **Last Updated:** 2025-11-01
 
 ### Original Content
+
 ```
 # Neovim Configuration TODO
 
@@ -188,5 +194,4 @@ should be a way to make them not clash.
 
 ## Learn
 - How to fold in neovim
-
 ```

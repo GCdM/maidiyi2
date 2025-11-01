@@ -97,8 +97,33 @@ return {
 			formatters = {
 				dprint = {
 					condition = function(ctx)
-						-- Only use dprint if dprint.json exists in project
-						return vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1]
+						-- Check for project-specific config (dprint.json or dprint.jsonc)
+						local project_config = vim.fs.find(
+							{ "dprint.json", "dprint.jsonc", ".dprint.json", ".dprint.jsonc" },
+							{ path = ctx.filename, upward = true }
+						)[1]
+						if project_config then
+							return true
+						end
+
+						-- Fall back to global config if it exists
+						local global_config = vim.fn.expand("~/.config/dprint/dprint.jsonc")
+						return vim.fn.filereadable(global_config) == 1
+					end,
+					args = function(ctx)
+						-- Check for project-specific config
+						local project_config = vim.fs.find(
+							{ "dprint.json", "dprint.jsonc", ".dprint.json", ".dprint.jsonc" },
+							{ path = ctx.filename, upward = true }
+						)[1]
+						if project_config then
+							-- Let dprint auto-discover the project config
+							return { "fmt", "--stdin", ctx.filename }
+						else
+							-- Use global config explicitly
+							local global_config = vim.fn.expand("~/.config/dprint/dprint.jsonc")
+							return { "fmt", "--config", global_config, "--stdin", ctx.filename }
+						end
 					end,
 				},
 			},
