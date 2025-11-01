@@ -40,7 +40,6 @@ This plan outlines improvements and enhancements for the Neovim configuration, i
     - [x] 10.1: Add keybinding for copying buffer file path (relative to project root) to system clipboard
     - [ ] 10.2: Add keymap for closing other buffers
     - [ ] 10.3: Add keymap for closing other windows
-    - [ ] 10.4: Add save without formatting keybinding (`<C-S-s>`)
 
 - [ ] 11: Implement floating help window
     - [ ] 11.1: Research best options for floating help
@@ -69,8 +68,8 @@ This plan outlines improvements and enhancements for the Neovim configuration, i
     - [ ] 17.1: When opening a directory with `nvim` e.g. `nvim .`, open explorer in fullscreen
     - [ ] 17.2: When opening explorer with keybinding `\` open on right-hand side
 
-- [ ] 18: Save without formatting keybinding
-    - [ ] 18.1: `<C-S-s>` unless this conflicts with some existing behaviour
+- [x] 18: Save without formatting keybinding
+    - [x] 18.1: `<C-S-s>` unless this conflicts with some existing behaviour
 
 ## To do
 
