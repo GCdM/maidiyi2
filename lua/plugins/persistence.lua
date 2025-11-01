@@ -14,6 +14,9 @@ return {
 			require("persistence").load()
 		end)
 	end,
+	pre_save = function()
+		vim.api.nvim_exec_autocmds("User", { pattern = "SessionSavePre" })
+	end,
 	keys = {
 		{
 			"<leader>qs",

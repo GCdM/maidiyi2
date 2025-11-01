@@ -12,8 +12,8 @@ return {
 		{ "<leader>bb", "<cmd>BufferPick<cr>", desc = "[B]uffer pick (interactive)" },
 
 		--Reordering (move tabs left/right)
-		{ "<A-<>", "<cmd>BufferMovePrevious<cr>", desc = "[B]uffer move left" },
-		{ "<A->>", "<cmd>BufferMoveNext<cr>", desc = "[B]uffer move right" },
+		{ "<A-S-h>", "<cmd>BufferMovePrevious<cr>", desc = "[B]uffer move left" },
+		{ "<A-S-l>", "<cmd>BufferMoveNext<cr>", desc = "[B]uffer move right" },
 
 		{ "<leader>bp", "<cmd>BufferPin<cr>", desc = "[B]uffer [P]in/unpin" },
 
@@ -47,7 +47,7 @@ return {
 		-- Enable clickable tabs (requires mouse support)
 		clickable = false,
 		-- Exclude filetypes from the tabline (file tree integration)
-		exclude_ft = { "snacks_explorer" },
+		exclude_ft = { "snacks_explorer", "netrw" },
 		exclude_name = {},
 
 		-- Icons and separators
@@ -68,13 +68,13 @@ return {
 			},
 			filetype = {
 				enabled = true,
-				custom_colors = true,
+				custom_colors = false,
 			},
-			separator = { left = "▎", right = "▎" },
-			separator_at_end = true,
+			separator = { left = "▎", right = "" },
+			separator_at_end = false,
 			modified = { button = "●" },
-			pinned = { button = "", filename = true },
-			preset = "powerline", -- Options: 'default', 'powerline', 'slanted'
+			pinned = { button = "", filename = true },
+			preset = "default", -- Options: 'default', 'powerline', 'slanted'
 			alternate = { filetype = { enabled = false } },
 			current = { buffer_index = false },
 			visible = { modified = { buffer_number = false } },
