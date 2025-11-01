@@ -6,12 +6,11 @@ configuration quality enhancements.
 
 ## Tasks
 
-- [ ] 1: Add new plugins
-  - [ ] 1.1: Install and configure `trouble.nvim`
+- [x] 1: Add new plugins
   - [x] 1.2: Install and configure `chainsaw.nvim`
   - [x] 1.3: Install and configure `folke/todo-comments.nvim`
-  - [ ] 1.4: Install and configure `norcalli/nvim-colorizer`
-    - [ ] 1.4.1: Add toggle keybinding `<leader>uC` -> `[U]I [*C*]olourise`
+  - [x] 1.4: Install and configure `norcalli/nvim-colorizer`
+    - [x] 1.4.1: Add toggle keybinding `<leader>uC` -> `[U]I [*C*]olourise`
   - [x] 1.5: Setup `romgrk/barbar.nvim`
 
 - [x] 2: Implement clipboard management system
