@@ -110,7 +110,7 @@ return {
 						local global_config = vim.fn.expand("~/.config/dprint/dprint.jsonc")
 						return vim.fn.filereadable(global_config) == 1
 					end,
-					args = function(ctx)
+					args = function(_, ctx)
 						-- Check for project-specific config
 						local project_config = vim.fs.find(
 							{ "dprint.json", "dprint.jsonc", ".dprint.json", ".dprint.jsonc" },

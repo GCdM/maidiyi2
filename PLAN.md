@@ -9,7 +9,9 @@ configuration quality enhancements.
 - [ ] 1: Add new plugins
   - [ ] 1.1: Install and configure `trouble.nvim`
   - [ ] 1.2: Install and configure `chainsaw.nvim`
-  - [ ] 1.3: Install and configure todo highlighting plugin
+  - [ ] 1.3: Install and configure `folke/todo-comments.nvim`
+  - [ ] 1.4: Install and configure `norcalli/nvim-colorizer`
+    - [ ] 1.4.1: Add toggle keybinding `<leader>uC` -> `[U]I [*C*]olourise`
 
 - [x] 2: Implement clipboard management system
   - [x] 2.1: Configure separate yank/paste registers from system clipboard
@@ -64,7 +66,7 @@ configuration quality enhancements.
 
 - [ ] 15: Choose a "bufferline" style plugin for buffer management
 
-- [ ] 16: Configure dprint for markdown formatting
+- [x] 16: Configure dprint for markdown formatting
 
 - [ ] 17: Configure explorer to "hijack" netrw (in fullscreen)
   - [ ] 17.1: When opening a directory with `nvim` e.g. `nvim .`, open explorer
@@ -73,6 +75,8 @@ configuration quality enhancements.
 
 - [x] 18: Save without formatting keybinding
   - [x] 18.1: `<C-S-s>` unless this conflicts with some existing behaviour
+
+- [ ] 19: Choose a markdown preview plugin
 
 ## To do
 

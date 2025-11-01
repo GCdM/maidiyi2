@@ -115,5 +115,4 @@ map("n", "<leader>tf", function()
 	else
 		vim.notify("Format on save disabled", vim.log.levels.DEBUG)
 	end
-	local status = vim.g.format_on_save_enabled and "enabled" or "disabled"
 end, { desc = "[T]oggle [F]ormat on save" })
