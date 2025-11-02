@@ -6,6 +6,9 @@ configuration quality enhancements.
 
 ## Tasks
 
+- [ ] 0: Markdown preview
+  - [ ] 0.1: With codeblock syntax highlighting
+
 - [x] 1: Add new plugins
   - [x] 1.2: Install and configure `chainsaw.nvim`
   - [x] 1.3: Install and configure `folke/todo-comments.nvim`
