@@ -6,8 +6,11 @@ configuration quality enhancements.
 
 ## Tasks
 
-- [ ] 0: Markdown preview
-  - [ ] 0.1: With codeblock syntax highlighting
+- [ ] 0: Markdown 
+  - [ ] 0.1: Add a renderer to show _italics_
+  - [ ] 0.2: Enable codeblock syntax highlighting
+  - [ ] 0.3: Fix 4 space tab
+  - [ ] 0.4: Add formatter
 
 - [x] 1: Add new plugins
   - [x] 1.2: Install and configure `chainsaw.nvim`
