@@ -13,6 +13,6 @@ return {
 	root_dir = function(fname)
 		return vim.fs.root(fname, { "biome.json", "biome.jsonc", "package.json", ".git" })
 	end,
-	single_file_support = false,
+	single_file_support = true,
 	settings = {},
 }

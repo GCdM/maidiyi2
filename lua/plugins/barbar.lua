@@ -45,7 +45,7 @@ return {
 		auto_hide = true,
 		tabpages = true,
 		-- Enable clickable tabs (requires mouse support)
-		clickable = false,
+		clickable = true,
 		-- Exclude filetypes from the tabline (file tree integration)
 		exclude_ft = { "snacks_explorer", "netrw" },
 		exclude_name = {},
