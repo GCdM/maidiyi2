@@ -12,5 +12,13 @@ return {
 	},
 	root_markers = { "biome.json", "biome.jsonc", "package.json", ".git" },
 	single_file_support = true,
-	settings = {},
+	settings = {
+		linter = {
+			enabled = true,
+		},
+		formatter = {
+			enabled = true,
+			formatWithErrors = true,
+		},
+	},
 }
