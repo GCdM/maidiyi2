@@ -37,6 +37,7 @@ return {
 			require("mini.icons").setup()
 
 			require("mini.move").setup()
+			require("mini.jump").setup()
 
 			-- Define custom highlight groups for Grapple
 			vim.api.nvim_set_hl(0, "GrappleStatuslineActive", { link = "Special" })

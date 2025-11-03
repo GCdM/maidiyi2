@@ -42,7 +42,7 @@ return {
 	},
 	opts = {
 		animation = true,
-		auto_hide = true,
+		auto_hide = false,
 		tabpages = true,
 		-- Enable clickable tabs (requires mouse support)
 		clickable = true,
