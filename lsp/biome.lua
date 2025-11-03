@@ -10,9 +10,7 @@ return {
 		"json",
 		"jsonc",
 	},
-	root_dir = function(fname)
-		return vim.fs.root(fname, { "biome.json", "biome.jsonc", "package.json", ".git" })
-	end,
+	root_markers = { "biome.json", "biome.jsonc", "package.json", ".git" },
 	single_file_support = true,
 	settings = {},
 }

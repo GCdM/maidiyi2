@@ -8,9 +8,7 @@ return {
 		"typescriptreact",
 		"typescript.tsx",
 	},
-	root_dir = function(fname)
-		return vim.fs.root(fname, { "package.json", "tsconfig.json", "jsconfig.json", ".git" })
-	end,
+	root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
 	single_file_support = true,
 	-- Disable diagnostics to avoid conflicts with biome
 	-- ts_ls will still provide language features (autocomplete, go-to-definition, etc.)
