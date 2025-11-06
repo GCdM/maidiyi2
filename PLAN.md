@@ -91,6 +91,8 @@ configuration quality enhancements.
 
 - [ ] 25: Retry editing in lazygit w/o tab
 
+- [ ] 26: Enable and configure treesitter folding
+
 ## To do
 
 - [ ] 1: Learn
