@@ -29,6 +29,7 @@ return {
 			additional_vim_regex_highlighting = { "ruby" },
 		},
 		indent = { enable = true, disable = { "ruby" } },
+		fold = { enable = true },
 	},
 	config = function(_, opts)
 		require("nvim-treesitter.configs").setup(opts)

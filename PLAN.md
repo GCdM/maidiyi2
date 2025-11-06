@@ -87,6 +87,10 @@ configuration quality enhancements.
   - [ ] 23.1: Relative line numbers
   - [ ] 23.2: Dark vs light colourscheme mode
 
+- [ ] 24: Make barbar sync on commit
+
+- [ ] 25: Retry editing in lazygit w/o tab
+
 ## To do
 
 - [ ] 1: Learn

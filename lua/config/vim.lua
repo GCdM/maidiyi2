@@ -50,3 +50,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.confirm = true
+
+-- Configure folds
+vim.opt.foldenable = false -- Don't fold by default when opening files
+vim.opt.foldlevel = 99 -- High value to open most folds by default
