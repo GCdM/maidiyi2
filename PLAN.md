@@ -93,6 +93,8 @@ configuration quality enhancements.
 
 - [ ] 26: Enable and configure treesitter folding
 
+- [ ] 27: Investigate why Snacks.explorer can't create a directory with the same name as an existing file
+
 ## To do
 
 - [ ] 1: Learn
