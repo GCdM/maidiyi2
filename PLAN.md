@@ -95,6 +95,8 @@ configuration quality enhancements.
 
 - [ ] 27: Investigate why Snacks.explorer can't create a directory with the same name as an existing file
 
+- [ ] 28: Fix chainsaw markers not disappearing
+
 ## To do
 
 - [ ] 1: Learn
