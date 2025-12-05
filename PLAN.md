@@ -97,6 +97,8 @@ configuration quality enhancements.
 
 - [ ] 28: Fix chainsaw markers not disappearing
 
+- [ ] 29: Fix gitsigns not updating "sidebar" highlights
+
 ## To do
 
 - [ ] 1: Learn
