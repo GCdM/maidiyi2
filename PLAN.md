@@ -99,6 +99,9 @@ configuration quality enhancements.
 
 - [ ] 29: Fix gitsigns not updating "sidebar" highlights
 
+- [ ] 30: Refactor UI/Toggle keybindings
+    - [ ] 30.1: Add toggle for diagnostics + spell check
+
 ## To do
 
 - [ ] 1: Learn

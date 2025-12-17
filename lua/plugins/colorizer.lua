@@ -1,4 +1,7 @@
-local typescript_opts = { names = false, css = true }
+local typescript_opts = {
+	css = true,
+	names = false, -- Disable parsing "names" like Blue in JavaScript files
+}
 
 return {
 	"norcalli/nvim-colorizer.lua",
@@ -13,7 +16,7 @@ return {
 	opts = {
 		"*", -- Highlight all files, but customize for specific file types
 		css = { css = true }, -- Enable parsing rgb(...) syntax in css files
-		javascript = typescript_opts, -- Disable parsing "names" like Blue in JavaScript files
+		javascript = typescript_opts,
 		typescript = typescript_opts,
 		javascriptreact = typescript_opts,
 		typescriptreact = typescript_opts,
