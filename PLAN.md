@@ -102,6 +102,8 @@ configuration quality enhancements.
 - [ ] 30: Refactor UI/Toggle keybindings
     - [ ] 30.1: Add toggle for diagnostics + spell check
 
+- [ ] 31: Configure scratch buffer to be 80vh/vw
+
 ## To do
 
 - [ ] 1: Learn
