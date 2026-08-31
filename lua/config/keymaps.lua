@@ -86,9 +86,22 @@ map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- Center cursor after half-page jumps
-map("n", "<C-d>", "<C-d>zz", { desc = "Half-page down (centered)" })
-map("n", "<C-u>", "<C-u>zz", { desc = "Half-page up (centered)" })
+-- Half-page jumps: center the cursor FIRST so every jump scrolls a
+-- consistent half viewport (avoids drifting/weird jumps from an arbitrary
+-- starting position). Counts are supported, e.g. `2<C-d>`. Uses `normal!`
+-- with the raw key byte so it never recurses or races with mapped keys.
+local function half_page(direction)
+	local key = vim.keycode(direction) -- e.g. "\4" for <C-d>, "\21" for <C-u>
+	return function()
+		vim.cmd("normal! zz")
+		local count = vim.v.count > 0 and vim.v.count or 1
+		for _ = 1, count do
+			vim.cmd("normal! " .. key)
+		end
+	end
+end
+map("n", "<C-d>", half_page("<C-d>"), { desc = "Half-page down (centered first)" })
+map("n", "<C-u>", half_page("<C-u>"), { desc = "Half-page up (centered first)" })
 
 -- Commenting
 map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })

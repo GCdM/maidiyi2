@@ -50,7 +50,7 @@ configuration quality enhancements.
 
 - [x] 13: Add configuration validation
   - [x] 13.1: Add checks for required tools/binaries
-  - [ ] 13.2: Add validation for plugin configurations on startup
+  - [x] 13.2: Add validation for plugin configurations on startup
 
 - [x] 16: Configure dprint for markdown formatting
 
@@ -59,20 +59,35 @@ configuration quality enhancements.
 
 - [x] 19: Choose a markdown preview plugin (subsumed by render-markdown.nvim)
 
-- [ ] 20: Test how centering page jumps feels
+- [x] 20: Test how centering page jumps feels
   - [x] 20.1: Add `zz` to `<C-d>` & `<C-u>`
 
 - [x] 21: Find plugin that improves "f" and "t" (covered by `mini.jump`)
 
-- [ ] 22: Parse differences between new and old maidiyi
-  - [ ] 22.1: Create a list of the differences
-  - [ ] 22.2: Pick ones to copy over
+- [x] 22: Parse differences between new and old maidiyi
+  - [x] 22.1: Create a list of the differences
+  - [x] 22.2: Pick ones to copy over
 
 - [x] 23: Add UI toggles
   - [x] 23.1: Relative line numbers
   - [x] 23.2: Dark vs light colourscheme mode
 
 - [x] 24: Fix editing file in lazygit exiting with error
+
+- [ ] 25: File search includes directories it shouldn't e.g. node_modules or
+      .git/.worktrees
+
+- [x] 26: Remove markdown renderer
+
+- [ ] 27: typescript language server needs to be configured correctly. Pick a
+      modern, fast, and robust implementation
+
+- [x] 28: Ctrl+d (or +u) are moving weirdly, especially on first click. Change
+      to center cursor with zz first before moving
+
+- [ ] 29: LSP reference not working for TanStack start. Searching for all
+      references of a symbol is finding none when they are imported with paths
+      starting with '#'
 
 ## Carried over from `main` (pre-rebase todo list)
 
