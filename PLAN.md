@@ -6,11 +6,11 @@ configuration quality enhancements.
 
 ## Tasks
 
-- [ ] 0: Markdown 
-  - [ ] 0.1: Add a renderer to show _italics_
+- [ ] 0: Markdown
+  - [x] 0.1: Add a renderer to show _italics_
   - [ ] 0.2: Enable codeblock syntax highlighting
-  - [ ] 0.3: Fix 4 space tab
-  - [ ] 0.4: Add formatter
+  - [x] 0.3: Fix 4 space tab
+  - [x] 0.4: Add formatter
 
 - [x] 1: Add new plugins
   - [x] 1.2: Install and configure `chainsaw.nvim`
@@ -26,9 +26,7 @@ configuration quality enhancements.
 - [x] 3: Fix lazygit "e" behavior
   - [x] 3.1: Configure lazygit to open buffers directly instead of panes
 
-- [ ] 4: Diagnose and fix Lazy startup focus issue
-  - [ ] 4.1: Research similar reports about Lazy package manager cursor focus
-  - [ ] 4.2: Implement fix for cursor starting in background during auto-install
+- [x] 4: Auto-close Lazy view after startup install (User VeryLazy hook)
 
 - [x] 6: Enable hidden files in file picker
   - [x] 6.1: Configure file picker to include hidden files
@@ -36,9 +34,8 @@ configuration quality enhancements.
 
 - [x] 7: Enable gitignored files in explorer
 
-- [ ] 8: Fix window clash between terminal and explorer
-  - [ ] 8.1: Research snacks module configuration options
-  - [ ] 8.2: Implement solution to prevent terminal/explorer conflicts
+- [x] 8: Reconfigure Snacks.explorer — center float, open on startup, auto-close
+      on selection
 
 - [x] 10: Add additional keybindings
   - [x] 10.1: Add keybinding for copying buffer file path (relative to project
@@ -46,52 +43,45 @@ configuration quality enhancements.
   - [x] 10.2: Add keymap for closing other buffers
   - [x] 10.3: Add keymap for closing other windows
 
-- [ ] 11: Implement floating help window
-  - [ ] 11.1: Research best options for floating help
-  - [ ] 11.2: Implement solution (either existing plugin or custom with
-        Snack.win)
-  - [ ] 11.3: Configure to hijack traditional help window
+- [x] 11: Implement floating help window (right-side, 40% width)
 
-- [ ] 12: Swap `ts_ls` for `typescript-tools`
-  - [ ] 12.1: Research benefits and interoperability with Biome
-  - [ ] 12.2: Implement replacement configuration
-  - [ ] 12.3: Or preferably, get rid of it and keep just Biome
+- [x] 12: Swap `ts_ls` for `tsgo` (requires
+      `npm i -g @typescript/native-preview`)
 
-- [ ] 13: Add configuration validation
-  - [ ] 13.1: Add checks for required tools/binaries
+- [x] 13: Add configuration validation
+  - [x] 13.1: Add checks for required tools/binaries
   - [ ] 13.2: Add validation for plugin configurations on startup
-
-- [ ] 14: Create configuration documentation
-  - [ ] 14.1: Add inline documentation for complex configurations
-  - [ ] 14.2: Document custom functions and their purposes
 
 - [x] 16: Configure dprint for markdown formatting
 
 - [x] 18: Save without formatting keybinding
   - [x] 18.1: `<C-S-s>` unless this conflicts with some existing behaviour
 
-- [ ] 19: Choose a markdown preview plugin
+- [x] 19: Choose a markdown preview plugin (subsumed by render-markdown.nvim)
 
 - [ ] 20: Test how centering page jumps feels
-  - [ ] 20.1: Add `zz` to `<C-d>` & `<C-u>`
-  - [ ] 20.1: Add `zz` to `<C-d>` & `<C-u>`
+  - [x] 20.1: Add `zz` to `<C-d>` & `<C-u>`
 
-- [ ] 21: Find plugin that improves "f" and "t". They should be repeatable and
-      multlined
+- [x] 21: Find plugin that improves "f" and "t" (covered by `mini.jump`)
 
 - [ ] 22: Parse differences between new and old maidiyi
   - [ ] 22.1: Create a list of the differences
   - [ ] 22.2: Pick ones to copy over
 
-- [ ] 23: Add UI toggles
-  - [ ] 23.1: Relative line numbers
-  - [ ] 23.2: Dark vs light colourscheme mode
+- [x] 23: Add UI toggles
+  - [x] 23.1: Relative line numbers
+  - [x] 23.2: Dark vs light colourscheme mode
+
+- [x] 24: Fix editing file in lazygit exiting with error
+
+## Carried over from `main` (pre-rebase todo list)
+
+<!-- Kept with their original numbers for traceability. Dropped from `main`'s
+     list as already covered: 25 (lazygit editing → task "24: Fix editing file
+     in lazygit exiting with error" above, done), 26 (treesitter folding →
+     implemented in the rebased config: lua/plugins/nvim-treesitter.lua). -->
 
 - [ ] 24: Make barbar sync on commit
-
-- [ ] 25: Retry editing in lazygit w/o tab
-
-- [ ] 26: Enable and configure treesitter folding
 
 - [ ] 27: Investigate why Snacks.explorer can't create a directory with the same name as an existing file
 
@@ -113,8 +103,7 @@ configuration quality enhancements.
 - Some items require research before implementation (tasks 4, 11, 12)
 - Consider dependencies: clipboard management (task 2) should be done before
   related keybindings (task 10.1)
-- Configuration validation (task 13) and documentation (task 14) can be done in
-  parallel once core features are stable
+- Configuration validation (task 13) can be done once core features are stable
 
 ---
 

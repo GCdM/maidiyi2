@@ -35,3 +35,50 @@ vim.api.nvim_create_autocmd("VimResized", {
 		vim.cmd("tabdo wincmd =")
 	end,
 })
+
+-- Relocate :help buffers into a right-side floating window
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	desc = "Open :help in a right-side floating window",
+	group = vim.api.nvim_create_augroup("floating-help", { clear = true }),
+	callback = function(args)
+		if vim.bo[args.buf].buftype ~= "help" then
+			return
+		end
+		local win = vim.api.nvim_get_current_win()
+		if vim.api.nvim_win_get_config(win).relative ~= "" then
+			return
+		end
+		local width = math.floor(vim.o.columns * 0.4)
+		local height = vim.o.lines - vim.o.cmdheight - 2
+		vim.api.nvim_open_win(args.buf, true, {
+			relative = "editor",
+			width = width,
+			height = height,
+			col = vim.o.columns - width,
+			row = 0,
+			style = "minimal",
+			border = "rounded",
+		})
+		if #vim.api.nvim_list_wins() > 1 then
+			pcall(vim.api.nvim_win_close, win, false)
+		end
+	end,
+})
+
+-- Warn on startup if expected external binaries are missing
+vim.api.nvim_create_autocmd("VimEnter", {
+	desc = "Check for required external binaries",
+	group = vim.api.nvim_create_augroup("binary-check", { clear = true }),
+	callback = function()
+		local required = { "rg", "fd", "git", "lazygit", "biome", "dprint" }
+		local missing = {}
+		for _, bin in ipairs(required) do
+			if vim.fn.executable(bin) == 0 then
+				table.insert(missing, bin)
+			end
+		end
+		if #missing > 0 then
+			vim.notify("Missing binaries: " .. table.concat(missing, ", "), vim.log.levels.WARN)
+		end
+	end,
+})

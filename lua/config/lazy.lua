@@ -32,3 +32,13 @@ require("lazy").setup({
 	},
 	ui = { border = "rounded" },
 })
+
+vim.api.nvim_create_autocmd("User", {
+	pattern = "VeryLazy",
+	once = true,
+	callback = function()
+		pcall(function()
+			require("lazy.view").view:close()
+		end)
+	end,
+})

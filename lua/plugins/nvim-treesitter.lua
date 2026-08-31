@@ -1,10 +1,12 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	branch = "master",
+	branch = "main",
 	lazy = false,
 	build = ":TSUpdate",
-	opts = {
-		ensure_installed = {
+	config = function()
+		local ts = require("nvim-treesitter")
+		ts.setup()
+		ts.install({
 			"bash",
 			"c",
 			"diff",
@@ -22,18 +24,18 @@ return {
 			"json",
 			"css",
 			"yaml",
-		},
-		auto_install = true,
-		highlight = {
-			enable = true,
-			additional_vim_regex_highlighting = { "ruby" },
-		},
-		indent = { enable = true, disable = { "ruby" } },
-		fold = { enable = true },
-	},
-	config = function(_, opts)
-		require("nvim-treesitter.configs").setup(opts)
+		})
+		vim.api.nvim_create_autocmd("FileType", {
+			group = vim.api.nvim_create_augroup("nvim-treesitter-start", {}),
+			callback = function()
+				if not pcall(vim.treesitter.start) or vim.bo.filetype == "ruby" then
+					return
+				end
+				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
+		})
 
+		-- Fold with treesitter (from main: "Enable treesitter folds")
 		vim.opt.foldmethod = "expr"
 		vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 		vim.opt.foldenable = false -- Don't fold by default when opening files

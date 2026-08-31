@@ -86,6 +86,10 @@ map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
+-- Center cursor after half-page jumps
+map("n", "<C-d>", "<C-d>zz", { desc = "Half-page down (centered)" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Half-page up (centered)" })
+
 -- Commenting
 map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
 map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })

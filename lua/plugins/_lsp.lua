@@ -16,7 +16,6 @@ return {
 		opts = {
 			ensure_installed = {
 				"lua_ls",
-				"ts_ls",
 				"html",
 				"cssls",
 				"jsonls",
@@ -39,7 +38,6 @@ return {
 			ensure_installed = {
 				-- LSP Servers
 				"lua-language-server", -- Lua
-				"typescript-language-server", -- TypeScript/JavaScript (for language features)
 				"html-lsp", -- HTML
 				"css-lsp", -- CSS
 				"json-lsp", -- JSON
@@ -246,7 +244,7 @@ return {
 			local servers = {
 				"lua_ls",
 				"biome",
-				"ts_ls",
+				"tsgo",
 				"html",
 				"cssls",
 				"jsonls",
@@ -288,7 +286,7 @@ return {
 				desc = "Start the specified LSP server",
 				complete = function()
 					-- Return list of configured servers
-					return { "lua_ls", "biome", "ts_ls", "html", "cssls", "jsonls", "yamlls", "bashls" }
+					return { "lua_ls", "biome", "tsgo", "html", "cssls", "jsonls", "yamlls", "bashls" }
 				end,
 			})
 
