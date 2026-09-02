@@ -2,7 +2,7 @@
 local picker_source_defaults = {
 	hidden = true,
 	ignored = true,
-	exclude = { ".git" },
+	exclude = { ".git", "node_modules" },
 }
 
 return {

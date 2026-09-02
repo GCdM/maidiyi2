@@ -244,7 +244,7 @@ return {
 			local servers = {
 				"lua_ls",
 				"biome",
-				"tsgo",
+				"typescript",
 				"html",
 				"cssls",
 				"jsonls",
@@ -286,7 +286,7 @@ return {
 				desc = "Start the specified LSP server",
 				complete = function()
 					-- Return list of configured servers
-					return { "lua_ls", "biome", "tsgo", "html", "cssls", "jsonls", "yamlls", "bashls" }
+					return { "lua_ls", "biome", "typescript", "html", "cssls", "jsonls", "yamlls", "bashls" }
 				end,
 			})
 
