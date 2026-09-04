@@ -8,7 +8,7 @@ configuration quality enhancements.
 
 - [ ] 0: Markdown
   - [x] 0.1: Add a renderer to show _italics_
-  - [ ] 0.2: Enable codeblock syntax highlighting
+  - [x] 0.2: Enable codeblock syntax highlighting
   - [x] 0.3: Fix 4 space tab
   - [x] 0.4: Add formatter
 
@@ -96,14 +96,14 @@ configuration quality enhancements.
      in lazygit exiting with error" above, done), 26 (treesitter folding →
      implemented in the rebased config: lua/plugins/nvim-treesitter.lua). -->
 
-- [ ] 24: Make barbar sync on commit
+- [x] 24: Make barbar sync on commit
 
 - [ ] 27: Investigate why Snacks.explorer can't create a directory with the same
       name as an existing file
 
 - [ ] 28: Fix chainsaw markers not disappearing
 
-- [ ] 29: Fix gitsigns not updating "sidebar" highlights
+- [x] 29: Fix gitsigns not updating "sidebar" highlights
 
 - [ ] 30: Refactor UI/Toggle keybindings
   - [ ] 30.1: Add toggle for diagnostics + spell check

@@ -186,7 +186,7 @@ return {
 					-- to avoid duplication and provide consistent behavior across buffers
 
 					-- Highlight the symbol and its references when holding the cursor
-					if client.supports_method("textDocument/documentHighlight") then
+					if client:supports_method("textDocument/documentHighlight") then
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 							buffer = bufnr,
 							callback = vim.lsp.buf.document_highlight,

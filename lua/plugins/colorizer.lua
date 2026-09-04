@@ -4,7 +4,7 @@ local typescript_opts = {
 }
 
 return {
-	"norcalli/nvim-colorizer.lua",
+	"catgoose/nvim-colorizer.lua",
 	event = "VeryLazy",
 	keys = {
 		{

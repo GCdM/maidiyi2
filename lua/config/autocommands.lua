@@ -120,7 +120,6 @@ vim.api.nvim_create_autocmd("User", {
 			"bufferline", -- barbar.nvim
 			"gitsigns",
 			"snacks",
-			"grapple",
 			"persistence",
 			"which-key",
 			"blink.cmp",
