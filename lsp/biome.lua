@@ -1,5 +1,14 @@
 return {
-	cmd = { "biome", "lsp-proxy" },
+	cmd = { "bunx", "biome", "lsp-proxy" },
+	-- -- Use project's biome; fallback to Mason managed biome
+	-- cmd = function()
+	-- 	local local_biome = vim.fn.getcwd() .. "/node_modules/.bin/biome"
+	-- 	if vim.fn.executable(local_biome) == 1 then
+	-- 		return { local_biome, "lsp-proxy" }
+	-- 	end
+	-- 	return { vim.fn.exepath("biome"), "lsp-proxy" } -- mason fallback
+	-- end,
+
 	filetypes = {
 		"javascript",
 		"javascriptreact",
