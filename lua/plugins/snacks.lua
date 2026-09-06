@@ -2,7 +2,7 @@
 local picker_source_defaults = {
 	hidden = true,
 	ignored = true,
-	exclude = { ".git", "node_modules" },
+	exclude = { ".git", "node_modules", "dist" },
 }
 
 return {
@@ -41,6 +41,13 @@ return {
 
 		-- quickfile = { enabled = true },
 		scope = { enabled = true },
+		scratch = {
+			win = {
+				style = "scratch",
+				width = 0.8, -- 80vw
+				height = 0.8, -- 80vh
+			},
+		},
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
 		-- words = { enabled = true },

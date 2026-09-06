@@ -45,6 +45,7 @@ return {
 				"bash-language-server", -- Bash
 
 				-- Formatters
+				"biome", -- TypeScript/JavaScript (for linting & formatting)
 				"stylua", -- Lua formatter
 				"dprint", -- Fast markdown formatter
 

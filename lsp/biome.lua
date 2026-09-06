@@ -6,7 +6,7 @@ return {
 	-- 	if vim.fn.executable(local_biome) == 1 then
 	-- 		return { local_biome, "lsp-proxy" }
 	-- 	end
-	-- 	return { vim.fn.exepath("biome"), "lsp-proxy" } -- mason fallback
+	-- 	return { "biome", "lsp-proxy" } -- mason fallback
 	-- end,
 
 	filetypes = {

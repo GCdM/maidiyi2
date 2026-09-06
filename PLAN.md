@@ -6,7 +6,7 @@ configuration quality enhancements.
 
 ## Tasks
 
-- [ ] 0: Markdown
+- [x] 0: Markdown
   - [x] 0.1: Add a renderer to show _italics_
   - [x] 0.2: Enable codeblock syntax highlighting
   - [x] 0.3: Fix 4 space tab
@@ -94,21 +94,20 @@ configuration quality enhancements.
 <!-- Kept with their original numbers for traceability. Dropped from `main`'s
      list as already covered: 25 (lazygit editing → task "24: Fix editing file
      in lazygit exiting with error" above, done), 26 (treesitter folding →
-     implemented in the rebased config: lua/plugins/nvim-treesitter.lua). -->
+     implemented in the rebased config: lua/plugins/nvim-treesitter.lua).
+     Dropped by decision: 27 (Snacks.explorer dir-creation → investigated;
+     real but unreported upstream gap, no local fix wanted). -->
 
 - [x] 24: Make barbar sync on commit
 
-- [ ] 27: Investigate why Snacks.explorer can't create a directory with the same
-      name as an existing file
-
-- [ ] 28: Fix chainsaw markers not disappearing
+- [x] 28: Fix chainsaw markers not disappearing
 
 - [x] 29: Fix gitsigns not updating "sidebar" highlights
 
 - [ ] 30: Refactor UI/Toggle keybindings
   - [ ] 30.1: Add toggle for diagnostics + spell check
 
-- [ ] 31: Configure scratch buffer to be 80vh/vw
+- [x] 31: Configure scratch buffer to be 80vh/vw
 
 ## To do
 
