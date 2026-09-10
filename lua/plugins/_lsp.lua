@@ -43,6 +43,8 @@ return {
 				"json-lsp", -- JSON
 				"yaml-language-server", -- YAML
 				"bash-language-server", -- Bash
+				"docker-compose-language-service", -- Docker Compose
+				"docker-language-server", -- Dockerfile/Containerfile/Bake
 
 				-- Formatters
 				"biome", -- TypeScript/JavaScript (for linting & formatting)
@@ -157,6 +159,17 @@ return {
 			},
 		},
 		config = function()
+			-- Filetype detection for Docker Compose files (not in the Nvim runtime).
+			-- Required for the docker_compose_language_service to attach.
+			vim.filetype.add({
+				filename = {
+					["compose.yaml"] = "yaml.dockercompose",
+					["compose.yml"] = "yaml.dockercompose",
+					["docker-compose.yaml"] = "yaml.dockercompose",
+					["docker-compose.yml"] = "yaml.dockercompose",
+				},
+			})
+
 			-- Global LSP configuration that applies to all servers
 			vim.lsp.config("*", {
 				on_attach = function(client, bufnr)
@@ -250,6 +263,8 @@ return {
 				"jsonls",
 				"yamlls",
 				"bashls",
+				"docker_compose_language_service",
+				"docker_language_server",
 			}
 
 			for _, server in ipairs(servers) do
@@ -286,7 +301,18 @@ return {
 				desc = "Start the specified LSP server",
 				complete = function()
 					-- Return list of configured servers
-					return { "lua_ls", "biome", "typescript", "html", "cssls", "jsonls", "yamlls", "bashls" }
+					return {
+						"lua_ls",
+						"biome",
+						"typescript",
+						"html",
+						"cssls",
+						"jsonls",
+						"yamlls",
+						"bashls",
+						"docker_language_server",
+						"docker_compose_language_service",
+					}
 				end,
 			})
 
